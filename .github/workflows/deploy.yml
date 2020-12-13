@@ -23,7 +23,7 @@ jobs:
       - name: Build the site
         run: |
           npm ci
-          npm build
+          npm run build
 
       - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v1
