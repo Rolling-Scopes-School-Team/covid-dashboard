@@ -104,7 +104,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './static/index.html',
     }),
     new MiniCssExtractPlugin({
       chunkFilename: '[id].css',
@@ -113,7 +113,7 @@ const config: Configuration = {
     isAnalyze ? new BundleAnalyzerPlugin() : nothing,
     isProduction
       ? new CopyWebpackPlugin({
-        patterns: [{ from: './src/static', to: '.' }],
+        patterns: [{ from: './static', to: '.' }],
       })
       : nothing,
   ],
