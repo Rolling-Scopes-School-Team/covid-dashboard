@@ -1,25 +1,17 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/indent */
 import axios from 'axios';
-import { Action } from 'redux';
-import { ThunkAction } from 'redux-thunk';
 
 import { ActionType, ResponseType } from '@/types/shims';
 
 import globalCasesAC from '../actionCreators/dataActionCreator';
 
-const CasesReducerFetchData = (): ThunkAction<
-  void,
-  unknown,
-  unknown,
-  Action<ActionType>
-> => async dispatch => {
+export const CasesReducerFetchData = () => async (dispatch: (arg0: ActionType) => void) => {
   try {
     const response: ResponseType = await axios.get('https://api.covid19api.com/summary');
 
     const { data } = response;
     const { Global } = data;
-    const action: ActionType = globalCasesAC(Global);
+
+    const action: ActionType = globalCasesAC.globalCasesAC(Global);
 
     dispatch(action);
   } catch (err) {

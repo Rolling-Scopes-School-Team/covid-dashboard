@@ -13,3 +13,5 @@ const reducers = combineReducers({
 const store = createStore(reducers, persistedState, composeWithDevTools(applyMiddleware(thunk)));
 
 export default store;
+
+export type RootState = ReturnType<typeof reducers>;

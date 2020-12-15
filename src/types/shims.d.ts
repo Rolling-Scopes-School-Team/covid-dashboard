@@ -1,15 +1,10 @@
-import { type } from 'os';
-
-import Country from '../components/List/Country/Country';
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
 declare module '*.scss' {
   const classes: { [key: string]: string };
   export default classes;
 }
 
 declare module '*.svg' {
-  const content: any;
+  const content: unknown;
   export default content;
 }
 
@@ -49,3 +44,7 @@ export type ActionType = {
   type: string;
   data: Global;
 };
+
+export interface GlobalCasesState {
+  globalCases: number;
+}

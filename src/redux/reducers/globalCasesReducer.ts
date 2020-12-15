@@ -1,11 +1,13 @@
+import { ActionType } from '@/types/shims';
+
 import ActionTypes from '../ActionTypes';
 
-const globalCasesReducer = (state = [], action) => {
-  switch (action.type) {
-    case ActionTypes.FETCH_GLOBAL_CASES_SUCCESS:
-      const newState = action.data.TotalConfirmed;
+const globalCasesReducer = (state = 0, action: ActionType) => {
+  const { type } = action;
 
-      return newState;
+  switch (type) {
+    case ActionTypes.FETCH_GLOBAL_CASES_SUCCESS:
+      return action.data.TotalConfirmed;
 
     default:
       return state;
