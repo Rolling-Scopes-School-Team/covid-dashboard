@@ -1,0 +1,20 @@
+header {
+  min-height: 90px;
+  background: var(--darkblue);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  width: 320px;
+  color: #f4f4f4;
+  font-size: 29.5px;
+}
+
+.subtitle {
+  width: 320px;
+  color: var(--text);
+  font-size: 11px;
+}
