@@ -13,9 +13,15 @@
     },
     "outDir": "./build/",
     "rootDir": "./",
-    "module": "CommonJS",
-    "target": "ES6",
+    "module": "commonjs",
+    "target": "ES5",
     "jsx": "react",
     "jsxFactory": "React.createElement",
+     "lib": [
+            "es2016",
+            "dom",
+            "es5",
+            "ES6"
+        ]
   }
 }

@@ -6,9 +6,15 @@
         "modules": false
       }
     ],
+    ["env", {"modules": false} ],
     "@babel/preset-react"
   ],
   "plugins": [
+    ["@babel/plugin-transform-runtime",
+      {
+        "regenerator": true
+      }
+    ],
     [
       "module-resolver", {
         "alias": {
