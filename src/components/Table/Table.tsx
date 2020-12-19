@@ -1,8 +1,8 @@
 import React from 'react';
 
 import './index.scss';
-import DeathTable from '../Tables/DeathTable/DeathTable';
-import RecoveryTable from '../Tables/RecoveryTable/RecoveryTable';
+import DeathTable from '@/components/Tables/DeathTable/DeathTable';
+import RecoveryTable from '@/components/Tables/RecoveryTable/RecoveryTable';
 
 const Table = (): JSX.Element => (
   <React.Fragment>

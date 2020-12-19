@@ -1,19 +1,20 @@
 import axios from 'axios';
 
-import { ActionType, ResponseType } from '@/types/shims';
+import globalCasesAC from '@/redux/actionCreators/dataActionCreator';
+import { GlobalCasesActionType, ListActionType, ResponseType } from '@/types/types';
 
-import globalCasesAC from '../actionCreators/dataActionCreator';
-
-export const CasesReducerFetchData = () => async (dispatch: (arg0: ActionType) => void) => {
+export const CasesReducerFetchData = () => async (
+  dispatch: (arg0: GlobalCasesActionType | ListActionType) => void
+) => {
   try {
     const response: ResponseType = await axios.get('https://api.covid19api.com/summary');
 
     const { data } = response;
     const { Global } = data;
+    const { Countries } = data;
 
-    const action: ActionType = globalCasesAC.globalCasesAC(Global);
-
-    dispatch(action);
+    dispatch(globalCasesAC.globalCasesAC(Global));
+    dispatch(globalCasesAC.listAC(Countries));
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);

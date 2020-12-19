@@ -1,5 +1,6 @@
 const ActionTypes = {
   FETCH_GLOBAL_CASES_SUCCESS: 'FETCH_GLOBAL_CASES_SUCCESS',
+  FETCH_LIST_SUCCESS: 'FETCH_LIST_SUCCESS',
 };
 
 export default ActionTypes;

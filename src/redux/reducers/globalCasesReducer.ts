@@ -1,8 +1,7 @@
-import { ActionType } from '@/types/shims';
+import ActionTypes from '@/redux/ActionTypes';
+import { GlobalCasesActionType } from '@/types/types';
 
-import ActionTypes from '../ActionTypes';
-
-const globalCasesReducer = (state = 0, action: ActionType) => {
+const globalCasesReducer = (state = 0, action: GlobalCasesActionType) => {
   const { type } = action;
 
   switch (type) {
