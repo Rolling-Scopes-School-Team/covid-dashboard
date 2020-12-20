@@ -24,7 +24,7 @@ const App = (): JSX.Element => {
   useEffect(() => {
     dispatch(FetchData());
     dispatch(FetchDataForGraph());
-  }, [dispatch]);
+  }, []);
 
   return (
     <React.Fragment>

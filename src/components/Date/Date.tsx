@@ -2,7 +2,8 @@ import classNames from 'classnames';
 import React from 'react';
 
 import styles from '@/components/Date/index.scss';
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
+// eslint-disable-next-line import/extensions
+import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
 import classes from '@/components/index.scss';
 
 const Date = (): JSX.Element => (
@@ -15,7 +16,7 @@ const Date = (): JSX.Element => (
     ])}
   >
     <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
+      <FullScreenIcon />
     </button>
     <div className={classNames([classes['heading'], styles['date-heading']])}>
       Last Updated at (M/D/YYYY)
