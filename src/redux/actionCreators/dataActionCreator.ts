@@ -1,5 +1,12 @@
 import ActionTypes from '@/redux/ActionTypes';
-import { GlobalCasesActionType, ListActionType, Global, Data } from '@/types/types';
+import {
+  GlobalCasesActionType,
+  ListActionType,
+  Global,
+  Data,
+  CountryForGraph,
+  GraphActionType,
+} from '@/types/types';
 
 const globalCasesAC = (data: Global): GlobalCasesActionType =>
   ({
@@ -13,4 +20,10 @@ const listAC = (data: Data['Countries']): ListActionType =>
     data,
   } as ListActionType);
 
-export default { globalCasesAC, listAC };
+const graphAC = (data: Array<CountryForGraph>): GraphActionType =>
+  ({
+    type: ActionTypes.FETCH_GRAPH_SUCCESS,
+    data,
+  } as GraphActionType);
+
+export default { globalCasesAC, listAC, graphAC };

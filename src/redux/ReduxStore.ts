@@ -3,13 +3,15 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import globalCasesReducer from '@/redux/reducers/globalCasesReducer';
-import listReducer from '@/redux/reducers/listReduce';
+import graphReducer from '@/redux/reducers/graphReducer';
+import listReducer from '@/redux/reducers/listReducer';
 
 const persistedState = {};
 
 const reducers = combineReducers({
   globalCases: globalCasesReducer,
   countries: listReducer,
+  graph: graphReducer,
 });
 
 const store = createStore(reducers, persistedState, composeWithDevTools(applyMiddleware(thunk)));

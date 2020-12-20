@@ -8,7 +8,7 @@ import List from '@/components/List/List';
 import Map from '@/components/Map/Map';
 import Table from '@/components/Table/Table';
 import { RootState } from '@/redux/ReduxStore';
-import { CasesReducerFetchData } from '@/redux/apiActionCreators/dataActionCreatorAPI';
+import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
 const App = (): JSX.Element => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(
@@ -19,16 +19,17 @@ const App = (): JSX.Element => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(CasesReducerFetchData());
+    dispatch(FetchData());
+    dispatch(FetchDataForGraph());
   }, []);
 
   return (
     <React.Fragment>
       <Header />
       <GlobalCases globalCases={globalCases} />
-      <Table />
+      <Table countries={countries} />
       <List countries={countries} />
-      <Map />
+      <Map countries={countries} />
       <Graph />
     </React.Fragment>
   );
