@@ -1,0 +1,22 @@
+.header {
+	min-height: 90px;
+	padding: 5px;
+	background: var(--darkblue);
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-wrap: wrap;
+	grid-area: header;
+}
+
+.header-title {
+	width: 320px;
+	color: #f4f4f4ee;
+	font-size: 29.5px;
+}
+
+.header-subtitle {
+	width: 320px;
+	color: var(--text);
+	font-size: 11px;
+}

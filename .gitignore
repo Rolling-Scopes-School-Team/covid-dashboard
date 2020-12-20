@@ -2,3 +2,4 @@ node_modules
 yarn.lock
 .lock
 yarn.lock
+.DS_Store
