@@ -1,16 +1,6 @@
 import React from 'react';
+import './index.scss';
 
-import styles from '@/components/Header/index.scss';
-
-const Header = (): JSX.Element => (
-  <header className={styles.header}>
-    <div className={styles['header-title']}>COVID-19 Dashboard</div>
-    <div className={styles['header-subtitle']}>
-      by the Center for Systems Science and Engineering (CSSE)
-      <br />
-      at Johns Hopkins University (JHU)
-    </div>
-  </header>
-);
+const Header = (): JSX.Element => <div>Test</div>;
 
 export default Header;

@@ -10,8 +10,6 @@ import Table from '@/components/Table/Table';
 import { RootState } from '@/redux/ReduxStore';
 import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
-import './index.scss';
-
 const App = (): JSX.Element => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(
     state => state.globalCases
