@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { GlobalCasesState } from '@/types/shims';
+import { GlobalCasesState } from '@/types/types';
 
 import './index.scss';
 

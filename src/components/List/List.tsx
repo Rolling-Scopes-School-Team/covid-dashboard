@@ -1,9 +1,11 @@
 import React from 'react';
 
 import './index.scss';
-import Country from './Country/Country';
+import Country from '@/components/List/Country/Country';
+import { ListState } from '@/types/types';
 
-const List = (): JSX.Element => (
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const List: React.FC<ListState> = ({ countries }) => (
   <React.Fragment>
     <Country />
   </React.Fragment>

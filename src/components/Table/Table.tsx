@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './index.scss';
-import DeathTable from '../Tables/DeathTable/DeathTable';
-import RecoveryTable from '../Tables/RecoveryTable/RecoveryTable';
+import DeathTable from '@/components/Tables/DeathTable/DeathTable';
+import RecoveryTable from '@/components/Tables/RecoveryTable/RecoveryTable';
+import { ListState } from '@/types/types';
 
-const Table = (): JSX.Element => (
+const Table: React.FC<ListState> = () => (
   <React.Fragment>
     <DeathTable />
     <RecoveryTable />

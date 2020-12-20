@@ -1,6 +1,8 @@
 import React from 'react';
+
+import { ListState } from '@/types/types';
 import './index.scss';
 
-const Map = (): JSX.Element => <div>Test</div>;
+const Map: React.FC<ListState> = () => <div>Test</div>;
 
 export default Map;

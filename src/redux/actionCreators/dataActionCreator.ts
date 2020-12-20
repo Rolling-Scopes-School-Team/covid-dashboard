@@ -1,11 +1,29 @@
-import { ActionType, Global } from '@/types/shims';
+import ActionTypes from '@/redux/ActionTypes';
+import {
+  GlobalCasesActionType,
+  ListActionType,
+  Global,
+  Data,
+  CountryForGraph,
+  GraphActionType,
+} from '@/types/types';
 
-import ActionTypes from '../ActionTypes';
-
-const globalCasesAC = (data: Global): ActionType =>
+const globalCasesAC = (data: Global): GlobalCasesActionType =>
   ({
     type: ActionTypes.FETCH_GLOBAL_CASES_SUCCESS,
     data,
-  } as ActionType);
+  } as GlobalCasesActionType);
 
-export default { globalCasesAC };
+const listAC = (data: Data['Countries']): ListActionType =>
+  ({
+    type: ActionTypes.FETCH_LIST_SUCCESS,
+    data,
+  } as ListActionType);
+
+const graphAC = (data: Array<CountryForGraph>): GraphActionType =>
+  ({
+    type: ActionTypes.FETCH_GRAPH_SUCCESS,
+    data,
+  } as GraphActionType);
+
+export default { globalCasesAC, listAC, graphAC };
