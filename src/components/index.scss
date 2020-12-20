@@ -63,31 +63,31 @@ body {
 }
 
 .global-cases {
-	grid-area: global-cases;
+  grid-area: global-cases;
 }
 
 .country-cases {
-	grid-area: country-cases;
+  grid-area: country-cases;
 }
 
 .date {
-	grid-area: date;
+  grid-area: date;
 }
 
 .map {
-	grid-area: map;
+  grid-area: map;
 }
 
 .death-cases {
-	grid-area: death-cases;
+  grid-area: death-cases;
 }
 
 .recovery-cases {
-	grid-area: recovery-cases;
+  grid-area: recovery-cases;
 }
 
 .graph {
-	grid-area: graph;
+  grid-area: graph;
 }
 
 .footer {
@@ -272,83 +272,86 @@ input:focus::placeholder {
 }
 
 @media screen and (max-width: 1023px) {
-	body {
-	  width: 100%;
-	  height: auto;
-	  grid-template-areas:
-	  "header header"
-	  "map map"
-	  "global-cases death-cases"
-	  "country-cases death-cases"
-	  "country-cases recovery-cases"
-	  "country-cases graph"
-	  "date graph"
-	  "footer footer"
-	}
+  body {
+    width: 100%;
+    height: auto;
+    grid-template-areas:
+      'header header'
+      'map map'
+      'global-cases death-cases'
+      'country-cases death-cases'
+      'country-cases recovery-cases'
+      'country-cases graph'
+      'date graph'
+      'footer footer';
+  }
 
-	li, li, .scroll-container {
-		width: 98% !important;
-	}
+  li,
+  li,
+  .scroll-container {
+    width: 98% !important;
+  }
 
-	.container {
-		width: 99.2%;
-		padding-right: 2px;
-	}
+  .container {
+    width: 99.2%;
+    padding-right: 2px;
+  }
 
-	.full-screen-btn {
-		left: 95.4%;
-	}
+  .full-screen-btn {
+    left: 95.4%;
+  }
 
-	.map  {
-		width: 100%;
-	}
+  .map {
+    width: 100%;
+  }
 
-	.github-links {
-		margin-top: 20px;
-	}
-	.year {
-		margin-right: 10px;
-	}
-	.modal-window {
-		right: 0;
-		left: -1px;
-	}
+  .github-links {
+    margin-top: 20px;
+  }
+  .year {
+    margin-right: 10px;
+  }
+  .modal-window {
+    right: 0;
+    left: -1px;
+  }
   footer {
     height: auto;
   }
-
 }
 
 @media screen and (max-width: 700px) {
-	body {
-	  grid-template-areas:
-	  "header"
-	  "map"
-	  "global-cases"
-	  "country-cases"
-	  "date"
-	  "death-cases"
-	  "recovery-cases"
-	  "graph"
-	  "footer"
-	}
+  body {
+    grid-template-areas:
+      'header'
+      'map'
+      'global-cases'
+      'country-cases'
+      'date'
+      'death-cases'
+      'recovery-cases'
+      'graph'
+      'footer';
+  }
 
-	.container {
-		width: 100%;
-	}
-	.map  {
-		width: 100%;
-	}
-	footer ul li:first-child {
-		margin-left: 0;
-	}
-	footer ul, .github-links  {
-		flex-wrap: wrap !important;
-	}
-	.github-links ul, .github-links ul li a  {
-		font-size: 14px;
-	}
-	.year {
-		margin: 40px auto 5px;
-	}
+  .container {
+    width: 100%;
+  }
+  .map {
+    width: 100%;
+  }
+  footer ul li:first-child {
+    margin-left: 0;
+  }
+  footer ul,
+  .github-links {
+    flex-wrap: wrap !important;
+  }
+  .github-links ul,
+  .github-links ul li a {
+    font-size: 14px;
+  }
+  .year {
+    margin: 40px auto 5px;
+  }
 }
