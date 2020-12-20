@@ -1,6 +1,23 @@
+import classNames from 'classnames';
 import React from 'react';
-import './index.scss';
 
-const Graph = (): JSX.Element => <div>Test</div>;
+// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
+// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+import styles from '@/components/Graph/index.scss';
+import classes from '@/components/index.scss';
+
+const Graph = (): JSX.Element => (
+  <div className={classNames([classes['container'], classes['container_s'], styles['graph']])}>
+    <button type="button" className={classes['full-screen-btn']}>
+      {/* <FullScreenIcon /> */}
+    </button>
+    <div className={classNames([classes['heading'], styles['graph-heading']])}>
+      <button type="button">{/* <img src="arrow-left.svg" alt="arrow" /> */}</button>
+      <span>Global Chart</span>
+      <button type="button">{/* <img src="arrow-right.svg" alt="arrow" /> */}</button>
+    </div>
+    <div className="chart">{/* <img src="chart.png" alt="chart" /> */}</div>
+  </div>
+);
 
 export default Graph;

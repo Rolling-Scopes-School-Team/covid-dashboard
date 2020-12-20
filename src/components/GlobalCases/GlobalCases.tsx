@@ -13,6 +13,7 @@ const GlobalCases: React.FC<GlobalCasesState> = ({ globalCases }) => {
         classes['container'],
         classes['container_xs'],
         styles['global-cases'],
+        classes['global-cases'],
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>

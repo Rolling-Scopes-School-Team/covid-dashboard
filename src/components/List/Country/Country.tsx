@@ -9,7 +9,7 @@ import classes from '@/components/index.scss';
 
 const Country = (): JSX.Element => (
   <div
-    className={classNames([classes['container'], classes['container_m'], styles['country-cases']])}
+    className={classNames([classes['container'], classes['container_m'], classes['country-cases']])}
   >
     <button type="button" className={classes['full-screen-btn']}>
       {/* <FullScreenIcon /> */}

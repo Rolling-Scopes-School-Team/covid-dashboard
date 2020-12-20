@@ -11,7 +11,14 @@ import classes from '@/components/index.scss';
 import { ListState } from '@/types/types';
 
 const Map: React.FC<ListState> = () => (
-  <div className={classNames([classes['container'], classes['container_l'], styles['map']])}>
+  <div
+    className={classNames([
+      classes['container'],
+      classes['container_l'],
+      styles['map'],
+      classes['map'],
+    ])}
+  >
     <button type="button" className={classes['full-screen-btn']}>
       {/* <FullScreenIcon /> */}
     </button>

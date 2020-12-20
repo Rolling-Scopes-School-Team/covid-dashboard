@@ -65,7 +65,7 @@
 
 .option:hover {
   cursor: pointer;
-  color: var(--dirtyblue)
+  color: var(--dirtyblue);
 }
 
 .option.selected {
@@ -78,8 +78,9 @@
   margin-left: 10px;
 }
 
-.arrow::before, .arrow::after {
-  content: "";
+.arrow::before,
+.arrow::after {
+  content: '';
   position: absolute;
   bottom: 0px;
   width: 1px;
@@ -96,7 +97,7 @@
 .arrow::after {
   left: -2px;
   transform: rotate(-45deg);
-   background-color: var(--blue);
+  background-color: var(--blue);
 }
 .open .arrow::before {
   left: 2px;
