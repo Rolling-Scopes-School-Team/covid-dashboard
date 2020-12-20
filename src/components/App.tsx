@@ -12,6 +12,8 @@ import { RootState } from '@/redux/ReduxStore';
 import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
 import './index.scss';
+// import './modalWindow.js';  JS => TS
+// import './dropdown.js';     JS => TS
 
 const App = (): JSX.Element => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(
