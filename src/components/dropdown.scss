@@ -99,10 +99,12 @@
   transform: rotate(-45deg);
   background-color: var(--blue);
 }
+
 .open .arrow::before {
   left: 2px;
   transform: rotate(-45deg);
 }
+
 .open .arrow::after {
   left: -2px;
   transform: rotate(45deg);

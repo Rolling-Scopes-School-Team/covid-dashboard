@@ -4,6 +4,7 @@ import React from 'react';
 // import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
 // import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
 import styles from '@/components/Tables/DeathTable/index.scss';
+import RecoveryPerCity from '@/components/Tables/RecoveryTable/RecoveryPerCity';
 import dropdown from '@/components/dropdown.scss';
 import classes from '@/components/index.scss';
 
@@ -39,106 +40,7 @@ const RecoveryTable = (): JSX.Element => (
       <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
         <div className={classNames([classes['list'], styles['recovery-cases-list']])}>
           <ul>
-            <li>
-              <span className={classNames([classes['counter'], styles['counter-deaths']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-deaths-value']])}
-              >
-                deaths
-              </span>
-              <span className={classNames([styles['counter'], styles['counter-recovered']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-              >
-                recovered
-              </span>
-              <span className={styles['city']}>New York</span>
-              <span className={styles['country']}>US</span>
-            </li>
-            <li>
-              <span className={classNames([classes['counter'], styles['counter-deaths']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-deaths-value']])}
-              >
-                deaths
-              </span>
-              <span className={classNames([styles['counter'], styles['counter-recovered']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-              >
-                recovered
-              </span>
-              <span className={styles['city']}>New York</span>
-              <span className={styles['country']}>US</span>
-            </li>
-            <li>
-              <span className={classNames([classes['counter'], styles['counter-deaths']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-deaths-value']])}
-              >
-                deaths
-              </span>
-              <span className={classNames([styles['counter'], styles['counter-recovered']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-              >
-                recovered
-              </span>
-              <span className={styles['city']}>New York</span>
-              <span className={styles['country']}>US</span>
-            </li>
-            <li>
-              <span className={classNames([classes['counter'], styles['counter-deaths']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-deaths-value']])}
-              >
-                deaths
-              </span>
-              <span className={classNames([styles['counter'], styles['counter-recovered']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-              >
-                recovered
-              </span>
-              <span className={styles['city']}>New York</span>
-              <span className={styles['country']}>US</span>
-            </li>
-            <li>
-              <span className={classNames([classes['counter'], styles['counter-deaths']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-deaths-value']])}
-              >
-                deaths
-              </span>
-              <span className={classNames([styles['counter'], styles['counter-recovered']])}>
-                297,501
-              </span>
-              <span
-                className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-              >
-                recovered
-              </span>
-              <span className={styles['city']}>New York</span>
-              <span className={styles['country']}>US</span>
-            </li>
+            <RecoveryPerCity />
           </ul>
         </div>
       </div>

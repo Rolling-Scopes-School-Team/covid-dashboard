@@ -5,6 +5,7 @@ import React from 'react';
 // import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
 // import { getSyntheticTrailingComments } from 'typescript';
 
+import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
 import dropdown from '@/components/dropdown.scss';
 import classes from '@/components/index.scss';
@@ -84,11 +85,7 @@ const Map: React.FC<ListState> = () => (
           <div className={classes['scroll-container']}>
             <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
               <ul>
-                <li>Default Map Extent</li>
-                <li>Argentina</li>
-                <li>Brazil</li>
-                <li>Belgium</li>
-                <li>Belarus</li>
+                <MapList />
               </ul>
             </div>
           </div>

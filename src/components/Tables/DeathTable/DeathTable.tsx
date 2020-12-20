@@ -3,6 +3,7 @@ import React from 'react';
 
 // import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
 // import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+import DeathsPerCountry from '@/components/Tables/DeathTable/DeathsPerCountry';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import dropdown from '@/components/dropdown.scss';
 import classes from '@/components/index.scss';
@@ -36,11 +37,7 @@ const DeathTable = (): JSX.Element => (
       <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
         <div className={classNames([classes['list'], styles['death-cases-list']])}>
           <ul>
-            <li>
-              <span className={classes['counter']}>297,501</span>
-              <span className={styles['counter-value']}>deaths</span>
-              <span className={styles['country']}>Brazil</span>
-            </li>
+            <DeathsPerCountry />
           </ul>
         </div>
       </div>
