@@ -1,0 +1,16 @@
+.global-cases {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.global-cases-heading {
+  font-size: 11px;
+  line-height: 13px;
+}
+
+.global-cases-counter {
+  font-size: 34px;
+  color: var(--blue);
+  margin-top: 2px;
+}

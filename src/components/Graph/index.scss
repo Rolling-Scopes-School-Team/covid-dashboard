@@ -1,0 +1,16 @@
+.graph {
+  align-items: center;
+  justify-content: space-around;
+}
+
+.graph-heading {
+  display: flex;
+}
+
+.graph button {
+  background: transparent;
+  color: var(--blue);
+  outline: none;
+  border: none;
+  margin: 0 10px;
+}

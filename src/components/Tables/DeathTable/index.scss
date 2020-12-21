@@ -1,0 +1,75 @@
+.scroll-container {
+  width: 250px;
+  max-height: 104px;
+}
+
+.counter-value {
+  font-size: 8px;
+  line-height: 8px;
+  color: rgba(243, 243, 243, 0.5);
+}
+
+.country {
+  margin-left: 10px;
+  font-size: 8px;
+  line-height: 8px;
+  color: rgba(243, 243, 243, 0.9);
+}
+
+.global-counter_deaths {
+  font-size: 26px;
+  color: #fffd;
+}
+
+.global-counter_recovery {
+  font-size: 26px;
+  color: #fffd;
+}
+
+.recovery-cases-list {
+  li {
+    span {
+      margin: 0 !important;
+    }
+    padding-left: 2px !important;
+  }
+  .counter-value {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--blue);
+    margin-left: 2px;
+  }
+  .counter {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--blue);
+    margin-left: 2px;
+  }
+  .counter-recovered {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--text);
+    margin-left: 2px;
+  }
+  .counter-recovered-value {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--text);
+    margin-left: 2px;
+  }
+  .city {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--text);
+    margin-left: 2px;
+  }
+  .country {
+    font-size: 10px;
+    line-height: 10px;
+    color: var(--text);
+    margin-left: 2px;
+    font-size: 8px;
+    line-height: 8px;
+    color: rgba(243, 243, 243, 0.9);
+  }
+}

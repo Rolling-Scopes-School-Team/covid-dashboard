@@ -12,7 +12,7 @@
     "prettier",
     "prettier/react",
      "prettier/prettier",
-     "prettier/@typescript-eslint",
+     "prettier/@typescript-eslint"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

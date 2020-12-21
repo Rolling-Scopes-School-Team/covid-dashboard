@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import DateCase from '@/components/DateCase/DateCase';
 import GlobalCases from '@/components/GlobalCases/GlobalCases';
 import Graph from '@/components/Graph/Graph';
 import Header from '@/components/Header/Header';
@@ -11,6 +12,8 @@ import { RootState } from '@/redux/ReduxStore';
 import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
 import './index.scss';
+// import './modalWindow.js';  JS => TS
+// import './dropdown.js';     JS => TS
 
 const App = (): JSX.Element => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(
@@ -29,9 +32,10 @@ const App = (): JSX.Element => {
     <React.Fragment>
       <Header />
       <GlobalCases globalCases={globalCases} />
-      <Table countries={countries} />
       <List countries={countries} />
+      <DateCase />
       <Map countries={countries} />
+      <Table countries={countries} />
       <Graph />
     </React.Fragment>
   );
