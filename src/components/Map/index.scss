@@ -5,7 +5,8 @@
   width: 140px;
 }
 
-.map, .graph {
+.map,
+.graph {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -22,7 +23,9 @@
   background-repeat: no-repeat;
 }
 
-.bookmarks, .legend, .basemaps {
+.bookmarks,
+.legend,
+.basemaps {
   position: absolute;
   bottom: 46px;
   right: 17px;
@@ -40,7 +43,8 @@
   height: 30px;
 }
 
-.bookmarks-county-list li, .legend-list li {
+.bookmarks-county-list li,
+.legend-list li {
   display: flex;
   align-items: center;
   font-size: 8px;
@@ -49,7 +53,8 @@
   cursor: pointer;
 }
 
-.bookmarks-county-list li:hover, .legend-list li:hover {
+.bookmarks-county-list li:hover,
+.legend-list li:hover {
   color: var(--dirtyblue);
 }
 
