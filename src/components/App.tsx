@@ -14,7 +14,9 @@ import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActi
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
+  const globalCases = useSelector<RootState, RootState['globalCases']>(
+    state => state.globalCases
+  );
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
 
   const dispatch = useDispatch();
@@ -26,13 +28,15 @@ const App = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Header />
-      <GlobalCases globalCases={globalCases} />
-      <List countries={countries} />
-      <DateCase />
-      <Map countries={countries} />
-      <Table countries={countries} />
-      <Graph />
+      <main>
+        <Header />
+        <GlobalCases globalCases={globalCases} />
+        <List countries={countries} />
+        <DateCase />
+        <Map countries={countries} />
+        <Table countries={countries} />
+        <Graph />
+      </main>
     </React.Fragment>
   );
 };
