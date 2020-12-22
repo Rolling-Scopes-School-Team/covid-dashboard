@@ -13,22 +13,13 @@ footer {
 }
 
 .logo {
+  width: 100px;
   margin-right: 10px;
-}
-
-.logo pre {
-  font-family: Roboto, Arial, sans-serif;
-  font-weight: bold;
-  color: var(--blue);
-  font-size: 20px;
-  letter-spacing: -2px;
-  line-height: 18px;
-  -webkit-text-stroke: 0.5px var(--blue);
   cursor: pointer;
 }
 
-.logo pre:hover {
-  -webkit-text-stroke: 0.5px #178cfa;
+.logo svg:hover {
+  filter: invert(100%) saturate(2878%) hue-rotate(165deg) brightness(120%) contrast(100%);
 }
 
 footer ul {
@@ -42,6 +33,14 @@ footer ul {
   font-size: 11px;
   white-space: nowrap;
   grid-gap: 10px;
+}
+
+footer ul span {
+  margin-left: 10px;
+}
+
+.devs {
+  margin-right: 20px;
 }
 
 footer ul li a {
@@ -78,4 +77,33 @@ footer ul li {
   color: var(--blue);
   font-size: 14px;
   margin-right: 50px;
+}
+
+@media screen and (max-width: 1023px) {
+  .github-links {
+    margin-top: 20px;
+  }
+  .year {
+    margin-right: 10px;
+  }
+  footer {
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  footer ul li:first-child {
+    margin-left: 0;
+  }
+  footer ul,
+  .github-links {
+    flex-wrap: wrap !important;
+  }
+  .github-links ul,
+  .github-links ul li a {
+    font-size: 14px;
+  }
+  .year {
+    margin: 40px auto 5px;
+  }
 }

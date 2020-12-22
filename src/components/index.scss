@@ -216,6 +216,10 @@ input:focus::placeholder {
   height: 10px;
 }
 
+.search button:hover {
+  filter: invert(100%) saturate(2878%) hue-rotate(165deg) brightness(120%) contrast(100%);
+}
+
 /*Common*/
 .heading {
   color: var(--text);

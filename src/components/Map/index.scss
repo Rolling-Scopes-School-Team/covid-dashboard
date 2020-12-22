@@ -32,15 +32,21 @@
   min-width: 248px;
   max-width: 248px;
   min-height: 83px;
-  background: var(--black);
+  background: var(--dark);
   border-radius: 6px;
   margin: 2px;
   padding: 14px 18px 16px 18px;
   border: 1px solid transparent;
+  overflow-y: hidden;
 }
 
-.scroll-container {
-  height: 30px;
+.bookmarks .scroll-container,
+.basemaps .scroll-container {
+  height: 100px;
+}
+
+.legend .scroll-container {
+  height: 66px;
 }
 
 .bookmarks-county-list li,
@@ -122,6 +128,10 @@
   }
 }
 
+.bookmarks-select-panel button:hover {
+  filter: invert(100%) saturate(2878%) hue-rotate(165deg) brightness(120%) contrast(100%);
+}
+
 .legend .ellipse {
   border-radius: 50%;
   background: var(--blue);
@@ -156,10 +166,23 @@
 }
 
 .basemaps-list-li {
+  padding-right: 6px !important;
+  width: 100px !important;
+  background: transparent !important;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.bookmarks button,
+.legend button,
+.basemaps button  {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 12px;
+  height: 12px;
 }
 
 .box {
