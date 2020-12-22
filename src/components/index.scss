@@ -358,77 +358,78 @@ input:focus::placeholder {
 
 // Modal Window FullScreen
 .full {
-	width: 100%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	flex-direction: column;
-	align-items: center;
-	padding: 40px 57px 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 57px 20px;
 }
 
 .full .wrapper {
-	width: 100%;
-	display: flex;
-	justify-content: flex-start;
-	flex-direction: column;
-	align-items: flex-start;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .full .wrapper div {
-	width: 100%;
+  width: 100%;
 }
 
 .full .select__trigger span {
-     width: 242px;
+  width: 242px;
 }
 
 .full .scroll-container {
-	width: 100%;
-	height: 560px
+  width: 100%;
+  height: 560px;
 }
 
 .full .bookmarks .scroll-container,
 .full .basemaps .scroll-container {
-	height: 100px;
+  height: 100px;
 }
 
 .full .legend .scroll-container {
-	height: 66px;
+  height: 66px;
 }
 
 .full .legend .scroll-container li,
 .full .bookmarks .scroll-container li {
-	width: 96%;
+  width: 96%;
 }
 
 .map-intaractive {
-	display: flex;
-	justify-content: flex-start;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .full .map-area {
-	width: 100%;
+  width: 100%;
 }
 
 .full .global-heading,
 .full .date-heading {
-	font-size: 22px;
-	margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 10px;
 }
 
-.full .global-cases-counter, .full .update-time {
-	font-size: 68px;
+.full .global-cases-counter,
+.full .update-time {
+  font-size: 68px;
 }
 
 .map-nav {
-	display: none;
+  display: none;
 }
 
 .visible {
-	display: block;
+  display: block;
 }
 
 .hide {
-     display: none;
+  display: none;
 }

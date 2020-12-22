@@ -48,6 +48,10 @@ export interface ListState {
   countries: Array<CountryType>;
 }
 
+export interface DropDownState {
+  options: Array<Array<string>>;
+}
+
 export interface CountryForGraph {
   Country: string;
   CountryCode: string;

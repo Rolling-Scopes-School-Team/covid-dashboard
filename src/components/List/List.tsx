@@ -3,11 +3,19 @@ import React from 'react';
 
 // import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
 // import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+
 import Country from '@/components/List/Country/Country';
 import styles from '@/components/List/index.scss';
-import dropdown from '@/components/dropdown.scss';
 import classes from '@/components/index.scss';
+import DropDown from '@/components/reusable/DropDown/DropDown';
+import dropdownStyles from '@/components/reusable/DropDown/dropdown.scss';
 import { ListState } from '@/types/types';
+
+const options = [
+  ['Cases by Country/Region/Sovereignty', 'country'],
+  ['Province/State/Dependency', 'state'],
+  ['Cases by US County', 'county'],
+];
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const List: React.FC<ListState> = ({ countries }) => (
@@ -18,24 +26,8 @@ const List: React.FC<ListState> = ({ countries }) => (
       {/* <FullScreenIcon /> */}
     </button>
     <div className={classes['wrapper']}>
-      <div className={classNames([classes['dropdown'], dropdown['select-wrapper']])}>
-        <div className={dropdown['select']}>
-          <div className={dropdown['select__trigger']}>
-            <span>Cases by Country/Region/Sovereignty</span>
-            <div className={dropdown['arrow']} />
-          </div>
-          <div className={dropdown['options']}>
-            <span className={dropdown['options selected']} data-value="country">
-              Cases by Country/Region/Sovereignty
-            </span>
-            <span className={dropdown['options']} data-value="state">
-              Province/State/Dependency
-            </span>
-            <span className={dropdown['options']} data-value="county">
-              Cases by US County
-            </span>
-          </div>
-        </div>
+      <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
+        <DropDown options={options} />
       </div>
       <div className={classNames([classes['search'], classes['country-cases-search']])}>
         <div className={classes['input']}>
