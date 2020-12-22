@@ -225,6 +225,12 @@ input:focus::placeholder {
   margin-right: 7px;
 }
 
+.country-hover {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .full-screen-btn {
   position: absolute;
   top: 4px;

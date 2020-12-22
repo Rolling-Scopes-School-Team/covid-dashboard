@@ -13,8 +13,14 @@ const Country: React.FC<CountryState> = ({ countries, selected, options }) => {
   return (
     <React.Fragment>
       {countries.map(element => (
-        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
-        <li role="button" onKeyPress={() => null} tabIndex={0} onClick={() => handleClick(element)}>
+        <li
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+          role="button"
+          onKeyPress={() => null}
+          tabIndex={0}
+          onClick={() => handleClick(element)}
+          className={classes['country-hover']}
+        >
           <span className={classes['counter']}>
             {(selected === options[0][0] && element.cases) ||
               (selected === options[1][0] && element.todayCases) ||
