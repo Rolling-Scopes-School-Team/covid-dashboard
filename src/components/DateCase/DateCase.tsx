@@ -7,7 +7,14 @@ import classes from '@/components/index.scss';
 
 const DateCase: React.FC = () => {
   return (
-    <div className={classNames([classes['container'], classes['container_xs'], styles['date']])}>
+    <div
+      className={classNames([
+        classes['container'],
+        classes['container_xs'],
+        styles['date'],
+        classes['date'],
+      ])}
+    >
       <button type="button" className={classes['full-screen-btn']}>
         {/* <FullScreenIcon /> */}
       </button>

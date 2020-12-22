@@ -7,7 +7,14 @@ import styles from '@/components/Graph/index.scss';
 import classes from '@/components/index.scss';
 
 const Graph = (): JSX.Element => (
-  <div className={classNames([classes['container'], classes['container_s'], styles['graph']])}>
+  <div
+    className={classNames([
+      classes['container'],
+      classes['container_s'],
+      styles['graph'],
+      classes['graph'],
+    ])}
+  >
     <button type="button" className={classes['full-screen-btn']}>
       {/* <FullScreenIcon /> */}
     </button>
