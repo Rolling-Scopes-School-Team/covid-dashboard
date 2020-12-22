@@ -1,13 +1,20 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 
 import classes from '@/components/index.scss';
-import { CountryState } from '@/types/types';
+import dataAC from '@/redux/actionCreators/dataActionCreator';
+import { CountryState, CountryType } from '@/types/types';
 
 const Country: React.FC<CountryState> = ({ countries, selected, options }) => {
+  const dispatch = useDispatch();
+
+  const handleClick = (element: CountryType) => dispatch(dataAC.selectedAC(element));
+
   return (
     <React.Fragment>
       {countries.map(element => (
-        <li>
+        // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
+        <li role="button" onKeyPress={() => null} tabIndex={0} onClick={() => handleClick(element)}>
           <span className={classes['counter']}>
             {(selected === options[0][0] && element.cases) ||
               (selected === options[1][0] && element.todayCases) ||

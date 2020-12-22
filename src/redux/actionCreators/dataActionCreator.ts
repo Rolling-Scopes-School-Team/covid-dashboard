@@ -6,6 +6,7 @@ import {
   CountryForGraph,
   GraphActionType,
   CountryType,
+  SelectedCountryActionType,
 } from '@/types/types';
 
 const globalCasesAC = (data: Global): GlobalCasesActionType =>
@@ -26,4 +27,10 @@ const graphAC = (data: Array<CountryForGraph>): GraphActionType =>
     data,
   } as GraphActionType);
 
-export default { globalCasesAC, listAC, graphAC };
+const selectedAC = (data: CountryType): SelectedCountryActionType =>
+  ({
+    type: ActionTypes.SELECT_COUNTRY,
+    data,
+  } as SelectedCountryActionType);
+
+export default { globalCasesAC, listAC, graphAC, selectedAC };

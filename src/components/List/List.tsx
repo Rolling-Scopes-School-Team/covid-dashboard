@@ -23,9 +23,7 @@ const options = [
 const List: React.FC<ListState> = ({ countries }) => {
   const [selected, setSelected] = useState(options[0][0]);
 
-  const changeSelected = (newSelected: string) => {
-    setSelected(newSelected);
-  };
+  const changeSelected = (newSelected: string) => setSelected(newSelected);
 
   return (
     <div

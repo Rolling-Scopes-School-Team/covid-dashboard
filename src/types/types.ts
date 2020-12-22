@@ -70,6 +70,11 @@ export type GlobalCasesActionType = {
   data: Global;
 };
 
+export type SelectedCountryActionType = {
+  type: string;
+  data: CountryType;
+};
+
 export type ListActionType = {
   type: string;
   data: Array<CountryType>;
