@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import styles from '@/components/DateCase/index.scss';
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import classes from '@/components/index.scss';
 
 const DateCase: React.FC = () => {
@@ -16,7 +16,7 @@ const DateCase: React.FC = () => {
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-        {/* <FullScreenIcon /> */}
+        <FullScreenIcon />
       </button>
       <div className={classNames([classes['heading'], styles['date-heading']])}>
         Last Updated at (M/D/YYYY)

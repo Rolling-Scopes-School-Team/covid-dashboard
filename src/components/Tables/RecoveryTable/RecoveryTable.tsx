@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import RecoveryPerCity from '@/components/Tables/RecoveryTable/RecoveryPerCity';
 import classes from '@/components/index.scss';
@@ -23,7 +22,7 @@ const RecoveryTable = (): JSX.Element => (
     ])}
   >
     <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
+      <FullScreenIcon />
     </button>
     <div className={classes['wrapper']}>
       <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>

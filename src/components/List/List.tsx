@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import React from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
-
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+import LoupeIcon from '@/components/Icons/LoupeIcon';
 import Country from '@/components/List/Country/Country';
 import styles from '@/components/List/index.scss';
 import classes from '@/components/index.scss';
@@ -23,7 +22,7 @@ const List: React.FC<ListState> = ({ countries }) => (
     className={classNames([classes['container'], classes['container_m'], classes['country-cases']])}
   >
     <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
+      <FullScreenIcon />
     </button>
     <div className={classes['wrapper']}>
       <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
@@ -32,7 +31,9 @@ const List: React.FC<ListState> = ({ countries }) => (
       <div className={classNames([classes['search'], classes['country-cases-search']])}>
         <div className={classes['input']}>
           <input type="input" name="search" placeholder="Search by Country/Region" />
-          <button type="button">{/* <LoupeIcon /> */}</button>
+          <button type="button">
+            <LoupeIcon />
+          </button>
         </div>
       </div>
       <div className={classes['scroll-container']}>
