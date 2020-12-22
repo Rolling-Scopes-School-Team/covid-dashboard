@@ -1,16 +1,13 @@
-// import classNames from 'classnames';
+import classNames from 'classnames';
 import React from 'react';
 
-// import styles from '@/components/Footer/index.scss';
-// import classes from '@/components/index.scss';
+import styles from '@/components/Footer/index.scss';
+import classes from '@/components/index.scss';
 
 const Footer = (): JSX.Element => (
-  <footer className="container">
-    <div className="logo">
-      {/* <pre>R{"        "}S{"\n"}SC HO OL{"\n"}{"        "}</pre> */}
-      RS SCHOOL
-    </div>
-    <div className="github-links">
+  <footer className={classNames([classes['container'], classes['footer']])}>
+    <div className={styles['logo']}>RS SCHOOL</div>
+    <div className={styles['github-links']}>
       <ul>
         App developers:
         <li>
@@ -38,7 +35,7 @@ const Footer = (): JSX.Element => (
           </a>
         </li>
       </ul>
-      <span className="year">2020</span>
+      <span className={styles['year']}>2020</span>
     </div>
   </footer>
 );

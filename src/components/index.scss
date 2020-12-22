@@ -318,7 +318,7 @@ input:focus::placeholder {
     right: 0;
     left: -1px;
   }
-  footer {
+  .footer {
     height: auto;
   }
 }
@@ -343,10 +343,10 @@ input:focus::placeholder {
   .map {
     width: 100%;
   }
-  footer ul li:first-child {
+  .footer ul li:first-child {
     margin-left: 0;
   }
-  footer ul,
+  .footer ul,
   .github-links {
     flex-wrap: wrap !important;
   }
