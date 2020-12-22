@@ -7,9 +7,17 @@ import React from 'react';
 
 import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
-import dropdown from '@/components/dropdown.scss';
 import classes from '@/components/index.scss';
+import DropDown from '@/components/reusable/DropDown/DropDown';
 import { ListState } from '@/types/types';
+
+const options = [
+  ['Cumulative Cases', 'cumulative'],
+  ['Active Cases', 'active'],
+  ['Incidence Rate', 'incidence-rate'],
+  ['Case-Fatality Ratio', 'fatality-ratio'],
+  ['Testing Rate', 'testing-rate'],
+];
 
 const Map: React.FC<ListState> = () => (
   <div
@@ -24,29 +32,7 @@ const Map: React.FC<ListState> = () => (
       {/* <FullScreenIcon /> */}
     </button>
     <div className={styles['map-area']}>
-      <div className={dropdown['select']}>
-        <div className={dropdown['select__trigger']}>
-          <span>Cumulative Cases</span>
-          <div className={dropdown['arrow']} />
-        </div>
-        <div className={dropdown['options']}>
-          <span className={dropdown['options selected']} data-value="cumulative">
-            Cumulative Cases
-          </span>
-          <span className={dropdown['options']} data-value="active">
-            Active Cases
-          </span>
-          <span className={dropdown['options']} data-value="incidence-rate">
-            Incidence Rate
-          </span>
-          <span className={dropdown['options']} data-value="fatality-ratio">
-            Case-Fatality Ratio
-          </span>
-          <span className={dropdown['options']} data-value="testing-rate">
-            Testing Rate
-          </span>
-        </div>
-      </div>
+      <DropDown options={options} />
     </div>
     <div className={classNames([classes['search'], classes['country-cases-search']])}>
       <div className={classes['input']}>
