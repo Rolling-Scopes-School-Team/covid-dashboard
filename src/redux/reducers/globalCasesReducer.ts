@@ -6,7 +6,7 @@ const globalCasesReducer = (state = 0, action: GlobalCasesActionType) => {
 
   switch (type) {
     case ActionTypes.FETCH_GLOBAL_CASES_SUCCESS:
-      return action.data.TotalConfirmed;
+      return action.data.cases;
 
     default:
       return state;

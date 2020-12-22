@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 
 // import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
 // import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
@@ -14,31 +14,39 @@ const options = [
   ['Total Test Results in US', 'tested'],
 ];
 
-const RecoveryTable = (): JSX.Element => (
-  <div
-    className={classNames([
-      classes['container'],
-      classes['container_s'],
-      classes['recovery-cases'],
-    ])}
-  >
-    <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
-    </button>
-    <div className={classes['wrapper']}>
-      <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
-        <DropDown options={options} />
-      </div>
-      <div className={styles['global-counter_recovery']}>Deaths, Recovered</div>
-      <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
-        <div className={classNames([classes['list'], styles['recovery-cases-list']])}>
-          <ul>
-            <RecoveryPerCity />
-          </ul>
+const RecoveryTable = (): JSX.Element => {
+  const [selected, setSelected] = useState(options[0][0]);
+
+  const changeSelected = (newSelected: string) => {
+    setSelected(newSelected);
+  };
+
+  return (
+    <div
+      className={classNames([
+        classes['container'],
+        classes['container_s'],
+        classes['recovery-cases'],
+      ])}
+    >
+      <button type="button" className={classes['full-screen-btn']}>
+        {/* <FullScreenIcon /> */}
+      </button>
+      <div className={classes['wrapper']}>
+        <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
+          <DropDown options={options} selected={selected} changeSelected={changeSelected} />
+        </div>
+        <div className={styles['global-counter_recovery']}>Deaths, Recovered</div>
+        <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+          <div className={classNames([classes['list'], styles['recovery-cases-list']])}>
+            <ul>
+              <RecoveryPerCity />
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default RecoveryTable;

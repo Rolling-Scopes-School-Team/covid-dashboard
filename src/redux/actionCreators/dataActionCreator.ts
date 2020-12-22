@@ -3,9 +3,9 @@ import {
   GlobalCasesActionType,
   ListActionType,
   Global,
-  Data,
   CountryForGraph,
   GraphActionType,
+  CountryType,
 } from '@/types/types';
 
 const globalCasesAC = (data: Global): GlobalCasesActionType =>
@@ -14,7 +14,7 @@ const globalCasesAC = (data: Global): GlobalCasesActionType =>
     data,
   } as GlobalCasesActionType);
 
-const listAC = (data: Data['Countries']): ListActionType =>
+const listAC = (data: Array<CountryType>): ListActionType =>
   ({
     type: ActionTypes.FETCH_LIST_SUCCESS,
     data,

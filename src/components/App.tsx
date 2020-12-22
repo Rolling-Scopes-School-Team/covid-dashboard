@@ -9,12 +9,18 @@ import List from '@/components/List/List';
 import Map from '@/components/Map/Map';
 import Table from '@/components/Table/Table';
 import { RootState } from '@/redux/ReduxStore';
-import { FetchData, FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
+import {
+  FetchData,
+  FetchDataForGraph,
+  FetchGlobalData,
+} from '@/redux/apiActionCreators/dataActionCreatorAPI';
 
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
+  const globalCases = useSelector<RootState, RootState['globalCases']>(
+    state => state.globalCases
+  );
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
 
   const dispatch = useDispatch();
@@ -22,6 +28,7 @@ const App = (): JSX.Element => {
   useEffect(() => {
     dispatch(FetchData());
     dispatch(FetchDataForGraph());
+    dispatch(FetchGlobalData());
   }, []);
 
   return (
