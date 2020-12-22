@@ -1,10 +1,9 @@
 import classNames from 'classnames';
 import React from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
 // import { getSyntheticTrailingComments } from 'typescript';
-
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+import LoupeIcon from '@/components/Icons/LoupeIcon';
 import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
@@ -29,7 +28,7 @@ const Map: React.FC<ListState> = () => (
     ])}
   >
     <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
+      <FullScreenIcon />
     </button>
     <div className={styles['map-area']}>
       <DropDown options={options} />
@@ -37,7 +36,9 @@ const Map: React.FC<ListState> = () => (
     <div className={classNames([classes['search'], classes['country-cases-search']])}>
       <div className={classes['input']}>
         <input type="input" name="search" placeholder="Search by Country/Region" />
-        <button type="button">{/* <LoupeIcon /> */}</button>
+        <button type="button">
+          <LoupeIcon />
+        </button>
       </div>
     </div>
     <div className={styles['map-interactive']}>
@@ -68,7 +69,7 @@ const Map: React.FC<ListState> = () => (
           <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
             Bookmarks
           </div>
-          <div className={classes['scroll-container']}>
+          <div className={styles['scroll-container']}>
             <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
               <ul>
                 <MapList />
@@ -83,7 +84,7 @@ const Map: React.FC<ListState> = () => (
           <div className={styles['legend-heading']}>Legend</div>
           <div className={styles['legend-subheading']}>Cumulative Confirmed Cases</div>
           <div className={styles['legend-confirm']}>Confirmed</div>
-          <div className={classes['scroll-container']}>
+          <div className={styles['scroll-container']}>
             <div className={classNames([classes['list'], styles['legend-list']])}>
               <ul>
                 <li>
@@ -113,10 +114,10 @@ const Map: React.FC<ListState> = () => (
           <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
             Basemaps
           </div>
-          <div className={classes['scroll-container']}>
+          <div className={styles['scroll-container']}>
             <div className={classNames([classes['list'], styles['basemaps-list']])}>
-              <ul>
-                <li>
+              <ul className={styles['basemaps-list-ul']}>
+                <li className={styles['basemaps-list-li']}>
                   <span className={styles['box']} />
                   <span className={styles['basemaps-item']}>Imagery</span>
                 </li>

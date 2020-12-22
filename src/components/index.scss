@@ -37,13 +37,16 @@ button {
 }
 
 body {
+  font-family: Roboto, Arial, sans-serif;
+  background: var(--darkblue);
+}
+
+main {
   position: relative;
   width: 1024px;
   min-width: 320px;
   margin: 0 auto;
   padding: 0 20px 20px 20px;
-  font-family: Roboto, Arial, sans-serif;
-  background: var(--darkblue);
   overflow-x: hidden;
 
   display: grid;
@@ -272,7 +275,7 @@ input:focus::placeholder {
 }
 
 @media screen and (max-width: 1023px) {
-  body {
+  main {
     width: 100%;
     height: auto;
     grid-template-areas:
@@ -315,13 +318,13 @@ input:focus::placeholder {
     right: 0;
     left: -1px;
   }
-  footer {
+  .footer {
     height: auto;
   }
 }
 
 @media screen and (max-width: 700px) {
-  body {
+  main {
     grid-template-areas:
       'header'
       'map'
@@ -340,10 +343,10 @@ input:focus::placeholder {
   .map {
     width: 100%;
   }
-  footer ul li:first-child {
+  .footer ul li:first-child {
     margin-left: 0;
   }
-  footer ul,
+  .footer ul,
   .github-links {
     flex-wrap: wrap !important;
   }

@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React from 'react';
 
 import styles from '@/components/GlobalCases/index.scss';
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import classes from '@/components/index.scss';
 import { GlobalCasesState } from '@/types/types';
 
@@ -17,7 +17,7 @@ const GlobalCases: React.FC<GlobalCasesState> = ({ globalCases }) => {
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-        {/* <FullScreenIcon /> */}
+        <FullScreenIcon />
       </button>
       <div className={classNames([classes['heading'], styles['global-cases-heading']])}>
         Global Cases

@@ -5,12 +5,7 @@
   width: 140px;
 }
 
-.map {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
+.map,
 .graph {
   display: flex;
   flex-direction: column;
@@ -28,45 +23,8 @@
   background-repeat: no-repeat;
 }
 
-.bookmarks {
-  position: absolute;
-  bottom: 46px;
-  right: 17px;
-  min-width: 248px;
-  max-width: 248px;
-  min-height: 83px;
-  background: var(--black);
-  border-radius: 6px;
-  margin: 2px;
-  padding: 14px 18px 16px 18px;
-  border: 1px solid transparent;
-  .scroll-container {
-    height: 100px;
-  }
-}
-
-.legend {
-  position: absolute;
-  bottom: 46px;
-  right: 17px;
-  min-width: 248px;
-  max-width: 248px;
-  min-height: 83px;
-  background: var(--black);
-  border-radius: 6px;
-  margin: 2px;
-  padding: 14px 18px 16px 18px;
-  border: 1px solid transparent;
-  .scroll-container {
-    height: 65px;
-  }
-  .ellipse {
-    border-radius: 50%;
-    background: var(--blue);
-    margin-right: 10px;
-  }
-}
-
+.bookmarks,
+.legend,
 .basemaps {
   position: absolute;
   bottom: 46px;
@@ -79,37 +37,25 @@
   margin: 2px;
   padding: 14px 18px 16px 18px;
   border: 1px solid transparent;
-  .scroll-container {
-    height: 100px;
-  }
 }
 
-.bookmarks-county-list {
-  li {
-    display: flex;
-    align-items: center;
-    font-size: 8px;
-    line-height: 8px;
-    color: rgba(243, 243, 243, 0.9);
-    cursor: pointer;
-    &:hover {
-      color: var(--dirtyblue);
-    }
-  }
+.scroll-container {
+  height: 30px;
 }
 
-.legend-list {
-  li {
-    display: flex;
-    align-items: center;
-    font-size: 8px;
-    line-height: 8px;
-    color: rgba(243, 243, 243, 0.9);
-    cursor: pointer;
-    &:hover {
-      color: var(--dirtyblue);
-    }
-  }
+.bookmarks-county-list li,
+.legend-list li {
+  display: flex;
+  align-items: center;
+  font-size: 8px;
+  line-height: 8px;
+  color: rgba(243, 243, 243, 0.9);
+  cursor: pointer;
+}
+
+.bookmarks-county-list li:hover,
+.legend-list li:hover {
+  color: var(--dirtyblue);
 }
 
 .legend-heading {
@@ -148,6 +94,7 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+
   button {
     font-size: 28px;
   }
@@ -169,9 +116,16 @@
   border: 1px solid transparent;
   display: flex;
   justify-content: space-around;
+
   button {
     width: 33%;
   }
+}
+
+.legend .ellipse {
+  border-radius: 50%;
+  background: var(--blue);
+  margin-right: 10px;
 }
 
 .ellipse100 {
@@ -188,24 +142,24 @@
   width: 12px;
   height: 12px;
 }
+
 .ellipse5 {
   width: 10px;
   height: 10px;
 }
 
-.basemaps-list {
-  ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: space-around;
-    li {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  }
+.basemaps-list-ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.basemaps-list-li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .box {
@@ -219,6 +173,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+
   &:hover {
     border: 1px solid var(--blue);
   }

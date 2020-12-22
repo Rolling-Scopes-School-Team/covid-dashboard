@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import React from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import DeathsPerCountry from '@/components/Tables/DeathTable/DeathsPerCountry';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import classes from '@/components/index.scss';
@@ -19,7 +18,7 @@ const DeathTable = (): JSX.Element => (
     className={classNames([classes['container'], classes['container_s'], classes['death-cases']])}
   >
     <button type="button" className={classes['full-screen-btn']}>
-      {/* <FullScreenIcon /> */}
+      <FullScreenIcon />
     </button>
     <div className={classes['wrapper']}>
       <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
