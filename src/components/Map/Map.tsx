@@ -2,9 +2,13 @@ import classNames from 'classnames';
 import React from 'react';
 
 // import { getSyntheticTrailingComments } from 'typescript';
+import Basemaps from '@/components/Icons/Basemaps';
+import Bookmark from '@/components/Icons/Bookmark';
+import Close from '@/components/Icons/Close';
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+import Legend from '@/components/Icons/Legend';
 import LoupeIcon from '@/components/Icons/LoupeIcon';
-import MapList from '@/components/Map/MapList/MapList';
+// import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
@@ -53,23 +57,23 @@ const Map: React.FC<ListState> = () => (
         </div>
         <div className={styles['bookmarks-select-panel']}>
           <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="bookmark.svg" /> */}
+            <Bookmark />
           </button>
           <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="legend.svg" /> */}
+            <Legend />
           </button>
           <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="basemaps.svg" /> */}
+            <Basemaps />
           </button>
         </div>
-        <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
+        {/* <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
           <button type="button" className={styles['close-btn']}>
-            {/* <img src="close.svg" /> */}
+            <Close />
           </button>
           <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
             Bookmarks
           </div>
-          <div className={styles['scroll-container']}>
+          <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
             <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
               <ul>
                 <MapList />
@@ -79,12 +83,12 @@ const Map: React.FC<ListState> = () => (
         </div>
         <div className={classNames([styles['legend'], styles['map-nav']])}>
           <button type="button" className="close-btn">
-            {/* <img src="close.svg" /> */}
+            <Close />
           </button>
           <div className={styles['legend-heading']}>Legend</div>
           <div className={styles['legend-subheading']}>Cumulative Confirmed Cases</div>
           <div className={styles['legend-confirm']}>Confirmed</div>
-          <div className={styles['scroll-container']}>
+          <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
             <div className={classNames([classes['list'], styles['legend-list']])}>
               <ul>
                 <li>
@@ -106,30 +110,30 @@ const Map: React.FC<ListState> = () => (
               </ul>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className={classNames([styles['basemaps'], styles['map-nav']])}>
           <button type="button" className={classes['close-btn']}>
-            {/* <img src="close.svg" /> */}
+            <Close />
           </button>
           <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
             Basemaps
           </div>
-          <div className={styles['scroll-container']}>
+          <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
             <div className={classNames([classes['list'], styles['basemaps-list']])}>
               <ul className={styles['basemaps-list-ul']}>
                 <li className={styles['basemaps-list-li']}>
                   <span className={styles['box']} />
                   <span className={styles['basemaps-item']}>Imagery</span>
                 </li>
-                <li>
+                <li className={styles['basemaps-list-li']}>
                   <span className={styles['box']} />
                   <span className={styles['basemaps-item']}>Topographic</span>
                 </li>
-                <li>
+                <li className={styles['basemaps-list-li']}>
                   <span className={styles['box']} />
                   <span className={styles['basemaps-item']}>Imagery</span>
                 </li>
-                <li>
+                <li className={styles['basemaps-list-li']}>
                   <span className={styles['box']} />
                   <span className={styles['basemaps-item']}>Imagery</span>
                 </li>
