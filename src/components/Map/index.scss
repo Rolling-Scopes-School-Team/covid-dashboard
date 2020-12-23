@@ -5,12 +5,12 @@
   width: 140px;
 }
 
-.map,
-.graph {
+.map {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
+
 
 .map {
   @media screen and (max-width: 1023px) {
