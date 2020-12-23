@@ -53,7 +53,7 @@ const Map: React.FC<ListState> = () => {
         </div>
       </div>
       <div className={styles['map-interactive']}>
-        <div className={styles['map-interactive-content']}>
+        <div className={classes['map-interactive-content']}>
           <div className={styles['map-zoom-in-out']}>
             <button className={styles['zoom-in']} type="button">
               +

@@ -5,22 +5,10 @@
   width: 140px;
 }
 
-.map,
-.graph {
+.map {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-}
-
-.map-intaractive-content {
-  margin-top: 27px;
-  width: 100%;
-  min-height: 470px;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 .bookmarks,
