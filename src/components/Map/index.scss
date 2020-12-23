@@ -12,6 +12,12 @@
   justify-content: flex-start;
 }
 
+.map {
+  @media screen and (max-width: 1023px) {
+    padding-right: 18px;
+  }
+}
+
 .map-intaractive-content {
   margin-top: 27px;
   width: 100%;
@@ -204,6 +210,11 @@
   &:hover {
     border: 1px solid var(--blue);
   }
+}
+
+.leaflet-popup-span {
+  display: flex;
+  flex-direction: column;
 }
 
 .basemaps-item {

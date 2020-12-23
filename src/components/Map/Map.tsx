@@ -15,9 +15,16 @@ import { CountryType, ListState } from '@/types/types';
 const options = [
   ['Cases', 'cases'],
   ['Active Cases', 'active'],
-  ['Incidence Rate', 'incidence-rate'],
-  ['Case-Fatality Ratio', 'fatality-ratio'],
-  ['Testing Rate', 'testing-rate'],
+  ['Deaths', 'deaths'],
+  ['Recovered', 'recovered'],
+  ['Cases per million', 'casesPerOneMillion'],
+  ['Active cases per million', 'activePerOneMillion'],
+  ['Deaths per one million', 'deathsPerOneMillion'],
+  ['Recovered per one million', 'recoveredPerOneMillion'],
+  ['Today cases', 'todayCases'],
+  ['Today deaths', 'todayDeaths'],
+  ['Tests', 'tests'],
+  ['Tests per one million', 'testsPerOneMillion'],
 ];
 const getStatistic = (str: string, countries: Array<CountryType>) => {
   const array: number[] = [];
