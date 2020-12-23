@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 
 // import { getSyntheticTrailingComments } from 'typescript';
 import Basemaps from '@/components/Icons/Basemaps';
@@ -22,58 +22,31 @@ const options = [
   ['Testing Rate', 'testing-rate'],
 ];
 
-const Map: React.FC<ListState> = () => (
-  <div
-    className={classNames([
-      classes['container'],
-      classes['container_l'],
-      styles['map'],
-      classes['map'],
-    ])}
-  >
-    <button type="button" className={classes['full-screen-btn']}>
-      <FullScreenIcon />
-    </button>
-    <div className={styles['map-area']}>
-      <DropDown options={options} />
-    </div>
-    <div className={classNames([classes['search'], classes['country-cases-search']])}>
-      <div className={classes['input']}>
-        <input type="input" name="search" placeholder="Search by Country/Region" />
-        <button type="button">
-          <LoupeIcon />
-        </button>
+
+const Map: React.FC<ListState> = () => {
+  const [selected, setSelected] = useState(options[0][0]);
+
+  const changeSelected = (newSelected: string) => {
+    setSelected(newSelected);
+  };
+
+  return (
+    <div
+      className={classNames([
+        classes['container'],
+        classes['container_l'],
+        styles['map'],
+        classes['map'],
+      ])}
+    >
+      <button type="button" className={classes['full-screen-btn']}>
+         <FullScreenIcon />
+      </button>
+      <div className={styles['map-area']}>
+        <DropDown options={options} selected={selected} changeSelected={changeSelected} />
+
       </div>
-    </div>
-    <div className={styles['map-interactive']}>
-      <div className={styles['map-interactive-content']}>
-        <div className={styles['map-zoom-in-out']}>
-          <button className={styles['zoom-in']} type="button">
-            +
-          </button>
-          <button className={styles['zoom-out']} type="button">
-            -
-          </button>
-        </div>
-        <div className={styles['bookmarks-select-panel']}>
-          <button className={styles['map-nav-btn']} type="button">
-            <Bookmark />
-          </button>
-          <button className={styles['map-nav-btn']} type="button">
-            <Legend />
-          </button>
-          <button className={styles['map-nav-btn']} type="button">
-            <Basemaps />
-          </button>
-        </div>
-        {/* <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
-          <button type="button" className={styles['close-btn']}>
-            <Close />
-          </button>
-          <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
-            Bookmarks
-          </div>
-          <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+
             <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
               <ul>
                 <MapList />
@@ -108,17 +81,10 @@ const Map: React.FC<ListState> = () => (
                   &gt; 50,000 – 100,000
                 </li>
               </ul>
+
             </div>
           </div>
-        </div> */}
-        <div className={classNames([styles['basemaps'], styles['map-nav']])}>
-          <button type="button" className={classes['close-btn']}>
-            <Close />
-          </button>
-          <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
-            Basemaps
-          </div>
-          <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+
             <div className={classNames([classes['list'], styles['basemaps-list']])}>
               <ul className={styles['basemaps-list-ul']}>
                 <li className={styles['basemaps-list-li']}>
@@ -143,7 +109,7 @@ const Map: React.FC<ListState> = () => (
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Map;

@@ -3,9 +3,10 @@ import {
   GlobalCasesActionType,
   ListActionType,
   Global,
-  Data,
   CountryForGraph,
   GraphActionType,
+  CountryType,
+  SelectedCountryActionType,
 } from '@/types/types';
 
 const globalCasesAC = (data: Global): GlobalCasesActionType =>
@@ -14,7 +15,7 @@ const globalCasesAC = (data: Global): GlobalCasesActionType =>
     data,
   } as GlobalCasesActionType);
 
-const listAC = (data: Data['Countries']): ListActionType =>
+const listAC = (data: Array<CountryType>): ListActionType =>
   ({
     type: ActionTypes.FETCH_LIST_SUCCESS,
     data,
@@ -26,4 +27,10 @@ const graphAC = (data: Array<CountryForGraph>): GraphActionType =>
     data,
   } as GraphActionType);
 
-export default { globalCasesAC, listAC, graphAC };
+const selectedAC = (data: CountryType): SelectedCountryActionType =>
+  ({
+    type: ActionTypes.SELECT_COUNTRY,
+    data,
+  } as SelectedCountryActionType);
+
+export default { globalCasesAC, listAC, graphAC, selectedAC };

@@ -4,13 +4,8 @@ import React, { useState } from 'react';
 import dropdown from '@/components/reusable/DropDown/dropdown.scss';
 import { DropDownState } from '@/types/types';
 
-const DropDown: React.FC<DropDownState> = ({ options }) => {
+const DropDown: React.FC<DropDownState> = ({ options, selected, changeSelected }) => {
   const [isOpen, setTogle] = useState(false);
-  const [selected, setSelected] = useState(options[0][0]);
-
-  const changeSelected = (newSelected: string) => {
-    setSelected(newSelected);
-  };
 
   return (
     <div
@@ -31,7 +26,12 @@ const DropDown: React.FC<DropDownState> = ({ options }) => {
             role="button"
             onKeyPress={() => null}
             tabIndex={0}
-            onClick={() => changeSelected(element[0])}
+            onClick={() => {
+              if (changeSelected) {
+                return changeSelected(element[0]) as string;
+              }
+              return null;
+            }}
             className={classNames(
               dropdown['option'],
               selected === element[0] && dropdown['selected']
