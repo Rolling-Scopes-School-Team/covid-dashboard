@@ -1,10 +1,13 @@
 import classNames from 'classnames';
-import React from 'react';
+import { LatLngTuple } from 'leaflet';
+import React, { useState } from 'react';
+import { LayersControl, MapContainer, TileLayer, Popup, Circle, FeatureGroup } from 'react-leaflet';
 
 // import { getSyntheticTrailingComments } from 'typescript';
-import FullScreenIcon from '@/components/Icons/FullScreenIcon';
-import LoupeIcon from '@/components/Icons/LoupeIcon';
-import MapList from '@/components/Map/MapList/MapList';
+// import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+// import LoupeIcon from '@/components/Icons/LoupeIcon';
+// import MapList from '@/components/Map/MapList/MapList';
+import coordinates from '@/components/Map/coordinates';
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
@@ -17,129 +20,100 @@ const options = [
   ['Case-Fatality Ratio', 'fatality-ratio'],
   ['Testing Rate', 'testing-rate'],
 ];
+// const getStatistic = (str: string, countries: CountryType[]) => {
+//   const array: number[] = [];
+//   countries.map(i => array.push(i[str]));
+//   return array;
+// };
 
-const Map: React.FC<ListState> = () => (
-  <div
-    className={classNames([
-      classes['container'],
-      classes['container_l'],
-      styles['map'],
-      classes['map'],
-    ])}
-  >
-    <button type="button" className={classes['full-screen-btn']}>
-      <FullScreenIcon />
-    </button>
-    <div className={styles['map-area']}>
-      <DropDown options={options} />
-    </div>
-    <div className={classNames([classes['search'], classes['country-cases-search']])}>
-      <div className={classes['input']}>
-        <input type="input" name="search" placeholder="Search by Country/Region" />
-        <button type="button">
-          <LoupeIcon />
-        </button>
+const Map: React.FC<ListState> = ({ countries }) => {
+  const defaultLatLng: LatLngTuple = [48.865572, 2.283523];
+  const [color, setColor] = useState({ fillColor: 'red', color: 'red' });
+  // console.log((Math.max(...getStatistic('NewDeaths', countries)) / 3));
+  // console.log(Math.min(...getStatistic('NewDeaths', countries)));
+
+  return (
+    <div
+      className={classNames([
+        classes['container'],
+        classes['container_l'],
+        styles['map'],
+        classes['map'],
+      ])}
+    >
+      <div className={styles['map-area']}>
+        <DropDown options={options} />
+        <div className={classNames([classes['search'], classes['country-cases-search']])}>
+          <div className={classes['input']}>
+            <input type="input" name="search" placeholder="Search by Country/Region" />
+            <button type="button">{/* <LoupeIcon /> */}</button>
+          </div>
+        </div>
+        <MapContainer className={styles['map-container']} center={defaultLatLng} zoom={3}>
+          <select
+            onChange={event =>
+              setColor({
+                fillColor: event.target.value,
+                color: event.target.value,
+              })
+            }
+          >
+            <option value="red">Total confirmed</option>
+            <option value="green">Total death</option>
+            <option value="blue">New confirmed</option>
+          </select>
+          <LayersControl position="topleft">
+            <LayersControl.BaseLayer checked name="Dark mode">
+              <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+            </LayersControl.BaseLayer>
+            <LayersControl.BaseLayer name="Light mode">
+              <TileLayer url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png" />
+            </LayersControl.BaseLayer>
+          </LayersControl>
+          {countries.map(country => {
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+            const { lat, long }: { lat: string; long: string } = coordinates[
+              country.CountryCode.toLowerCase()
+            ];
+            return (
+              <FeatureGroup
+                key={country.Country}
+                eventHandlers={{
+                  mouseover: e => {
+                    if (e.target) {
+                      // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
+                      e.target.openPopup();
+                    }
+                  },
+                }}
+              >
+                <Circle center={[+lat, +long]} radius={10000} pathOptions={color} fillOpacity={1} />
+                <Popup>
+                  <div className={styles['leaflet-popup-span']}>
+                    <span>
+                      <b>Country:</b> {country.Country}
+                    </span>
+                    <span>
+                      <b>Total confirmed:</b> {country.TotalConfirmed}
+                    </span>
+                    <span>
+                      <b>Total deaths:</b> {country.TotalDeaths}
+                    </span>
+                    <span>
+                      <b>Total recovered:</b> {country.TotalRecovered}
+                    </span>
+                    <span>
+                      <b>New confirmed:</b> {country.NewConfirmed}
+                    </span>
+                  </div>
+                </Popup>
+              </FeatureGroup>
+            );
+          })}
+        </MapContainer>
       </div>
     </div>
-    <div className={styles['map-interactive']}>
-      <div className={styles['map-interactive-content']}>
-        <div className={styles['map-zoom-in-out']}>
-          <button className={styles['zoom-in']} type="button">
-            +
-          </button>
-          <button className={styles['zoom-out']} type="button">
-            -
-          </button>
-        </div>
-        <div className={styles['bookmarks-select-panel']}>
-          <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="bookmark.svg" /> */}
-          </button>
-          <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="legend.svg" /> */}
-          </button>
-          <button className={styles['map-nav-btn']} type="button">
-            {/* <img src="basemaps.svg" /> */}
-          </button>
-        </div>
-        <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
-          <button type="button" className={styles['close-btn']}>
-            {/* <img src="close.svg" /> */}
-          </button>
-          <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
-            Bookmarks
-          </div>
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
-              <ul>
-                <MapList />
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={classNames([styles['legend'], styles['map-nav']])}>
-          <button type="button" className="close-btn">
-            {/* <img src="close.svg" /> */}
-          </button>
-          <div className={styles['legend-heading']}>Legend</div>
-          <div className={styles['legend-subheading']}>Cumulative Confirmed Cases</div>
-          <div className={styles['legend-confirm']}>Confirmed</div>
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['legend-list']])}>
-              <ul>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse100']])} />
-                  &gt; 1,000,000 – 5,000,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse50']])} />
-                  &gt; 500,000 – 1,000,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse10']])} />
-                  &gt; 100,000 – 500,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse5']])} />
-                  &gt; 50,000 – 100,000
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={classNames([styles['basemaps'], styles['map-nav']])}>
-          <button type="button" className={classes['close-btn']}>
-            {/* <img src="close.svg" /> */}
-          </button>
-          <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
-            Basemaps
-          </div>
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['basemaps-list']])}>
-              <ul className={styles['basemaps-list-ul']}>
-                <li className={styles['basemaps-list-li']}>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Topographic</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-);
+  );
+};
 
 export default Map;
