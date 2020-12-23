@@ -9,25 +9,60 @@ export type Data = {
 };
 
 export type Global = {
-  NewConfirmed: number;
-  TotalConfirmed: number;
-  NewDeaths: number;
-  TotalDeaths: number;
-  NewRecovered: number;
-  TotalRecovered: number;
+  updated: number;
+  cases: number;
+  todayCases: number;
+  deaths: number;
+  todayDeaths: number;
+  recovered: number;
+  todayRecovered: number;
+  active: number;
+  critical: number;
+  casesPerOneMillion: number;
+  deathsPerOneMillion: number;
+  tests: number;
+  testsPerOneMillion: number;
+  population: number;
+  oneCasePerPeople: null;
+  oneDeathPerPeople: null;
+  oneTestPerPeople: null;
+  activePerOneMillion: number;
+  recoveredPerOneMillion: number;
+  criticalPerOneMillion: number;
+  affectedCountries: number;
 };
 
 export type CountryType = {
-  Country: string;
-  CountryCode: string;
-  Slug: string;
-  NewConfirmed: number;
-  TotalConfirmed: number;
-  NewDeaths: number;
-  TotalDeaths: number;
-  NewRecovered: number;
-  TotalRecovered: number;
-  Date: string;
+  updated: number;
+  country: string;
+  countryInfo: {
+    _id: number;
+    iso2: string;
+    iso3: string;
+    lat: number;
+    long: number;
+    flag: string;
+  };
+  cases: number;
+  todayCases: number;
+  deaths: number;
+  todayDeaths: number;
+  recovered: number;
+  todayRecovered: number;
+  active: number;
+  critical: number;
+  casesPerOneMillion: number;
+  deathsPerOneMillion: number;
+  tests: number;
+  testsPerOneMillion: number;
+  population: number;
+  continent: string;
+  oneCasePerPeople: number;
+  oneDeathPerPeople: number;
+  oneTestPerPeople: number;
+  activePerOneMillion: number;
+  recoveredPerOneMillion: number;
+  criticalPerOneMillion: number;
 };
 
 export type GlobalCasesActionType = {
@@ -35,9 +70,14 @@ export type GlobalCasesActionType = {
   data: Global;
 };
 
+export type SelectedCountryActionType = {
+  type: string;
+  data: CountryType;
+};
+
 export type ListActionType = {
   type: string;
-  data: Data['Countries'];
+  data: Array<CountryType>;
 };
 
 export interface GlobalCasesState {
@@ -50,6 +90,13 @@ export interface ListState {
 
 export interface DropDownState {
   options: Array<Array<string>>;
+  selected: string;
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  changeSelected?: Function;
+}
+
+export interface CountryState extends DropDownState {
+  countries: ListState['countries'];
 }
 
 export interface CountryForGraph {
