@@ -42,7 +42,9 @@ const List: React.FC<ListState> = ({ countries }) => {
         <div className={classNames([classes['search'], classes['country-cases-search']])}>
           <div className={classes['input']}>
             <input type="input" name="search" placeholder="Search by Country/Region" />
-            <button type="button">{/* <LoupeIcon /> */}</button>
+            <button type="button">
+              <LoupeIcon />
+            </button>
           </div>
         </div>
         <div className={classes['scroll-container']}>
