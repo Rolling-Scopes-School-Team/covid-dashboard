@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import DateCase from '@/components/DateCase/DateCase';
+import Footer from '@/components/Footer/Footer';
 import GlobalCases from '@/components/GlobalCases/GlobalCases';
 import Graph from '@/components/Graph/Graph';
 import Header from '@/components/Header/Header';
@@ -18,7 +19,9 @@ import {
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
+  const globalCases = useSelector<RootState, RootState['globalCases']>(
+    state => state.globalCases
+  );
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
 
   const dispatch = useDispatch();
@@ -31,13 +34,16 @@ const App = (): JSX.Element => {
 
   return (
     <React.Fragment>
-      <Header />
-      <GlobalCases globalCases={globalCases} />
-      <List countries={countries} />
-      <DateCase />
-      <Map countries={countries} />
-      <Table countries={countries} />
-      <Graph />
+      <main>
+        <Header />
+        <GlobalCases globalCases={globalCases} />
+        <List countries={countries} />
+        <DateCase />
+        <Map countries={countries} />
+        <Table countries={countries} />
+        <Graph />
+        <Footer />
+      </main>
     </React.Fragment>
   );
 };

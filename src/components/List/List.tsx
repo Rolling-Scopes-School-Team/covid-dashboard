@@ -1,9 +1,8 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
-
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+import LoupeIcon from '@/components/Icons/LoupeIcon';
 import Country from '@/components/List/Country/Country';
 import styles from '@/components/List/index.scss';
 import classes from '@/components/index.scss';
@@ -34,7 +33,7 @@ const List: React.FC<ListState> = ({ countries }) => {
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-        {/* <FullScreenIcon /> */}
+         <FullScreenIcon /> 
       </button>
       <div className={classes['wrapper']}>
         <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>

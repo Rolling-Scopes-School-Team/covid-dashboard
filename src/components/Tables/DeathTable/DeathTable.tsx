@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import React, { useState } from 'react';
 
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon.tsx';
-// import LoupeIcon from '@/components/Icons/LoupeIcon.tsx';
+import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import DeathsPerCountry from '@/components/Tables/DeathTable/DeathsPerCountry';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import classes from '@/components/index.scss';
@@ -13,6 +12,7 @@ const options = [
   ['Global Deaths', 'deaths'],
   ['Global Recovered', 'recovered'],
 ];
+
 
 const DeathTable = (): JSX.Element => {
   const [selected, setSelected] = useState(options[0][0]);
@@ -26,12 +26,13 @@ const DeathTable = (): JSX.Element => {
       className={classNames([classes['container'], classes['container_s'], classes['death-cases']])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-        {/* <FullScreenIcon /> */}
+        <FullScreenIcon />
       </button>
       <div className={classes['wrapper']}>
         <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
           <DropDown options={options} selected={selected} changeSelected={changeSelected} />
         </div>
+
 
         <div className={styles['global-counter_deaths']}>1,570,642</div>
         <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
