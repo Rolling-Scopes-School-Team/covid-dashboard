@@ -300,13 +300,13 @@ input:focus::placeholder {
     height: auto;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-areas:
-    "header header header"
-    "global-cases map death-cases"
-    "country-cases map death-cases"
-    "country-cases map recovery-cases"
-    "country-cases map graph"
-    "date map graph"
-    "footer footer footer"
+      'header header header'
+      'global-cases map death-cases'
+      'country-cases map death-cases'
+      'country-cases map recovery-cases'
+      'country-cases map graph'
+      'date map graph'
+      'footer footer footer';
   }
 
   .footer {
@@ -317,7 +317,7 @@ input:focus::placeholder {
   }
   .container_l {
     width: 99.5%;
-    height: calc(80vh - 100vh/50%);
+    height: calc(80vh - 100vh / 50%);
     min-height: 600px;
   }
   .map-intaractive-content {
