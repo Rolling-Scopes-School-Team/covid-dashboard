@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
-// import LoupeIcon from '@/components/Icons/LoupeIcon';
+import LoupeIcon from '@/components/Icons/LoupeIcon';
 import Country from '@/components/List/Country/Country';
 import styles from '@/components/List/index.scss';
 import classes from '@/components/index.scss';
