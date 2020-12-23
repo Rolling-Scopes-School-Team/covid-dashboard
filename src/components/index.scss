@@ -134,6 +134,15 @@ main {
   min-height: 580px;
 }
 
+.map-intaractive-content {
+  margin-top: 27px;
+  width: 100%;
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
 /* Scroll */
 ::-webkit-scrollbar {
   width: 6px;
@@ -278,6 +287,43 @@ input:focus::placeholder {
 
 .list li:hover {
   border: 1px solid var(--purple);
+}
+
+@media screen and (min-width: 1040px) {
+  main {
+    justify-content: center;
+    margin-top: 2vw;
+    width: 100%;
+    max-width: 1640px;
+    min-height: 720px;
+    max-height: 1080px;
+    height: auto;
+    grid-template-columns: 1fr 5fr 1fr;
+    grid-template-areas:
+    "header header header"
+    "global-cases map death-cases"
+    "country-cases map death-cases"
+    "country-cases map recovery-cases"
+    "country-cases map graph"
+    "date map graph"
+    "footer footer footer"
+  }
+
+  .footer {
+    max-width: 100%;
+  }
+  .container {
+    min-width: 25%;
+  }
+  .container_l {
+    width: 99.5%;
+    height: calc(80vh - 100vh/50%);
+    min-height: 600px;
+  }
+  .map-intaractive-content {
+    height: 70vh;
+    min-height: 520px;
+  }
 }
 
 @media screen and (max-width: 1023px) {
