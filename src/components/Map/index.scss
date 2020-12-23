@@ -11,6 +11,24 @@
   justify-content: flex-start;
 }
 
+
+.map {
+  @media screen and (max-width: 1023px) {
+    padding-right: 18px;
+  }
+}
+
+.map-intaractive-content {
+  margin-top: 27px;
+  width: 100%;
+  min-height: 470px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .bookmarks,
 .legend,
 .basemaps {
@@ -36,6 +54,10 @@
 .legend .scroll-container {
   height: 66px;
 }
+.map-container {
+  height: 580px;
+}
+
 
 .bookmarks-county-list li,
 .legend-list li {
@@ -188,6 +210,11 @@
   &:hover {
     border: 1px solid var(--blue);
   }
+}
+
+.leaflet-popup-span {
+  display: flex;
+  flex-direction: column;
 }
 
 .basemaps-item {
