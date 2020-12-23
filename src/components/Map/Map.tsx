@@ -7,30 +7,32 @@ import { LayersControl, MapContainer, TileLayer, Popup, Circle, FeatureGroup } f
 // import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 // import LoupeIcon from '@/components/Icons/LoupeIcon';
 // import MapList from '@/components/Map/MapList/MapList';
-import coordinates from '@/components/Map/coordinates';
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
 import { ListState } from '@/types/types';
 
 const options = [
-  ['Cumulative Cases', 'cumulative'],
+  ['Cases', 'cases'],
   ['Active Cases', 'active'],
   ['Incidence Rate', 'incidence-rate'],
   ['Case-Fatality Ratio', 'fatality-ratio'],
   ['Testing Rate', 'testing-rate'],
 ];
-// const getStatistic = (str: string, countries: CountryType[]) => {
+// const getStatistic = (str: string, countries: Array<CountryType>) => {
 //   const array: number[] = [];
 //   countries.map(i => array.push(i[str]));
 //   return array;
 // };
 
 const Map: React.FC<ListState> = ({ countries }) => {
+  const [selected, setSelected] = useState(options[0][0]);
+  const changeSelected = (newSelected: string) => {
+    setSelected(newSelected);
+  };
   const defaultLatLng: LatLngTuple = [48.865572, 2.283523];
+  const activeSelect = options.filter(e => (e[0] === selected ? e[1] : false));
   const [color, setColor] = useState({ fillColor: 'red', color: 'red' });
-  // console.log((Math.max(...getStatistic('NewDeaths', countries)) / 3));
-  // console.log(Math.min(...getStatistic('NewDeaths', countries)));
 
   return (
     <div
@@ -42,7 +44,7 @@ const Map: React.FC<ListState> = ({ countries }) => {
       ])}
     >
       <div className={styles['map-area']}>
-        <DropDown options={options} />
+        <DropDown options={options} selected={selected} changeSelected={changeSelected} />
         <div className={classNames([classes['search'], classes['country-cases-search']])}>
           <div className={classes['input']}>
             <input type="input" name="search" placeholder="Search by Country/Region" />
@@ -71,15 +73,11 @@ const Map: React.FC<ListState> = ({ countries }) => {
             </LayersControl.BaseLayer>
           </LayersControl>
           {countries.map(country => {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-            const { lat, long }: { lat: string; long: string } = coordinates[
-              country.CountryCode.toLowerCase()
-            ];
             return (
               <FeatureGroup
-                key={country.Country}
+                key={country.country}
                 eventHandlers={{
-                  mouseover: e => {
+                  click: e => {
                     if (e.target) {
                       // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
                       e.target.openPopup();
@@ -87,23 +85,19 @@ const Map: React.FC<ListState> = ({ countries }) => {
                   },
                 }}
               >
-                <Circle center={[+lat, +long]} radius={10000} pathOptions={color} fillOpacity={1} />
+                <Circle
+                  center={[country.countryInfo.lat, country.countryInfo.long]}
+                  radius={10000}
+                  pathOptions={color}
+                  fillOpacity={1}
+                />
                 <Popup>
                   <div className={styles['leaflet-popup-span']}>
                     <span>
-                      <b>Country:</b> {country.Country}
+                      <b>Country:</b> {country.country}
                     </span>
                     <span>
-                      <b>Total confirmed:</b> {country.TotalConfirmed}
-                    </span>
-                    <span>
-                      <b>Total deaths:</b> {country.TotalDeaths}
-                    </span>
-                    <span>
-                      <b>Total recovered:</b> {country.TotalRecovered}
-                    </span>
-                    <span>
-                      <b>New confirmed:</b> {country.NewConfirmed}
+                      <b>{selected}: </b> {country[activeSelect[0][1]]}
                     </span>
                   </div>
                 </Popup>
@@ -115,5 +109,4 @@ const Map: React.FC<ListState> = ({ countries }) => {
     </div>
   );
 };
-
 export default Map;

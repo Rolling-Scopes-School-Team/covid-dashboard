@@ -7,20 +7,36 @@ import {
   ResponseType,
   CountryForGraph,
   GraphActionType,
+  CountryType,
+  Global,
 } from '@/types/types';
 
 export const FetchData = () => async (
-  dispatch: (arg0: GlobalCasesActionType | ListActionType | GraphActionType) => void
+  dispatch: (arg0: ListActionType | GraphActionType) => void
 ) => {
   try {
-    const response: ResponseType = await axios.get('https://api.covid19api.com/summary');
+    const response: ResponseType = await axios.get(
+      'https://disease.sh/v3/covid-19/countries?yesterday=true&twoDaysAgo=false&sort=cases&allowNull=false'
+    );
 
     const { data } = response;
-    const { Global } = data;
-    const { Countries } = data;
 
-    dispatch(dataAC.globalCasesAC(Global));
-    dispatch(dataAC.listAC(Countries));
+    dispatch(dataAC.listAC((data as unknown) as Array<CountryType>));
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log(err);
+  }
+};
+
+export const FetchGlobalData = () => async (dispatch: (arg0: GlobalCasesActionType) => void) => {
+  try {
+    const response: ResponseType = await axios.get(
+      'https://disease.sh/v3/covid-19/all?yesterday=true&twoDaysAgo=false&allowNull=true'
+    );
+
+    const { data } = response;
+
+    dispatch(dataAC.globalCasesAC((data as unknown) as Global));
   } catch (err) {
     // eslint-disable-next-line no-console
     console.log(err);

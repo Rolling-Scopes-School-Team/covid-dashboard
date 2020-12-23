@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import DeathsPerCountry from '@/components/Tables/DeathTable/DeathsPerCountry';
@@ -13,28 +13,35 @@ const options = [
   ['Global Recovered', 'recovered'],
 ];
 
-const DeathTable = (): JSX.Element => (
-  <div
-    className={classNames([classes['container'], classes['container_s'], classes['death-cases']])}
-  >
-    <button type="button" className={classes['full-screen-btn']}>
-      <FullScreenIcon />
-    </button>
-    <div className={classes['wrapper']}>
-      <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
-        <DropDown options={options} />
-      </div>
+const DeathTable = (): JSX.Element => {
+  const [selected, setSelected] = useState(options[0][0]);
 
-      <div className={styles['global-counter_deaths']}>1,570,642</div>
-      <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
-        <div className={classNames([classes['list'], styles['death-cases-list']])}>
-          <ul>
-            <DeathsPerCountry />
-          </ul>
+  const changeSelected = (newSelected: string) => {
+    setSelected(newSelected);
+  };
+
+  return (
+    <div
+      className={classNames([classes['container'], classes['container_s'], classes['death-cases']])}
+    >
+      <button type="button" className={classes['full-screen-btn']}>
+        <FullScreenIcon />
+      </button>
+      <div className={classes['wrapper']}>
+        <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
+          <DropDown options={options} selected={selected} changeSelected={changeSelected} />
+        </div>
+        <div className={styles['global-counter_deaths']}>1,570,642</div>
+        <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+          <div className={classNames([classes['list'], styles['death-cases-list']])}>
+            <ul>
+              <DeathsPerCountry />
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default DeathTable;
