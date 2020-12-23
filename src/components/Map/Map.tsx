@@ -58,52 +58,40 @@ const Map: React.FC<ListState> = () => {
               -
             </button>
           </div>
-
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
-              <ul>
-                <MapList />
-              </ul>
-            </div>
+          <div className={styles['bookmarks-select-panel']}>
+            <button className={styles['map-nav-btn']} type="button">
+              {/* <Bookmark /> */}
+            </button>
+            <button className={styles['map-nav-btn']} type="button">
+              {/* <Legend /> */}
+            </button>
+            <button className={styles['map-nav-btn']} type="button">
+              {/* <Basemaps /> */}
+            </button>
           </div>
-        </div>
-        <div className={classNames([styles['legend'], styles['map-nav']])}>
-          <button type="button" className="close-btn">
-            {/* <img src="close.svg" /> */}
-          </button>
-          <div className={styles['legend-heading']}>Legend</div>
-          <div className={styles['legend-subheading']}>Cumulative Confirmed Cases</div>
-          <div className={styles['legend-confirm']}>Confirmed</div>
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['legend-list']])}>
-              <ul>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse100']])} />
-                  &gt; 1,000,000 – 5,000,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse50']])} />
-                  &gt; 500,000 – 1,000,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse10']])} />
-                  &gt; 100,000 – 500,000
-                </li>
-                <li>
-                  <span className={classNames([styles['ellipse'], styles['ellipse5']])} />
-                  &gt; 50,000 – 100,000
-                </li>
-              </ul>
+          <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
+            <button type="button" className={styles['close-btn']}>
+              {/* <Close /> */}
+            </button>
+            <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
+              Bookmarks
+            </div>
+            <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+              <div className={classNames([classes['list'], styles['bookmark-countrylist']])}>
+                <ul>
+                  <MapList />
+                </ul>
+              </div>
             </div>
           </div>
           <div className={classNames([styles['legend'], styles['map-nav']])}>
             <button type="button" className="close-btn">
-              {/* <img src="close.svg" /> */}
+              {/* <Close /> */}
             </button>
             <div className={styles['legend-heading']}>Legend</div>
             <div className={styles['legend-subheading']}>Cumulative Confirmed Cases</div>
             <div className={styles['legend-confirm']}>Confirmed</div>
-            <div className={classes['scroll-container']}>
+            <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
               <div className={classNames([classes['list'], styles['legend-list']])}>
                 <ul>
                   <li>
@@ -126,27 +114,34 @@ const Map: React.FC<ListState> = () => {
               </div>
             </div>
           </div>
-
-          <div className={styles['scroll-container']}>
-            <div className={classNames([classes['list'], styles['basemaps-list']])}>
-              <ul className={styles['basemaps-list-ul']}>
-                <li className={styles['basemaps-list-li']}>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Topographic</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-                <li>
-                  <span className={styles['box']} />
-                  <span className={styles['basemaps-item']}>Imagery</span>
-                </li>
-              </ul>
+          <div className={classNames([styles['basemaps'], styles['map-nav']])}>
+            <button type="button" className={classes['close-btn']}>
+              {/* <Close /> */}
+            </button>
+            <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
+              Basemaps
+            </div>
+            <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+              <div className={classNames([classes['list'], styles['basemaps-list']])}>
+                <ul className={styles['basemaps-list-ul']}>
+                  <li className={styles['basemaps-list-li']}>
+                    <span className={styles['box']} />
+                    <span className={styles['basemaps-item']}>Imagery</span>
+                  </li>
+                  <li className={styles['basemaps-list-li']}>
+                    <span className={styles['box']} />
+                    <span className={styles['basemaps-item']}>Topographic</span>
+                  </li>
+                  <li className={styles['basemaps-list-li']}>
+                    <span className={styles['box']} />
+                    <span className={styles['basemaps-item']}>Imagery</span>
+                  </li>
+                  <li className={styles['basemaps-list-li']}>
+                    <span className={styles['box']} />
+                    <span className={styles['basemaps-item']}>Imagery</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
