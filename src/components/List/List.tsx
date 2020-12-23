@@ -33,7 +33,7 @@ const List: React.FC<ListState> = ({ countries }) => {
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-         <FullScreenIcon /> 
+        <FullScreenIcon />
       </button>
       <div className={classes['wrapper']}>
         <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>

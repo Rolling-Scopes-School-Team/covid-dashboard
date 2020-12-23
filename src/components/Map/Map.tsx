@@ -18,7 +18,6 @@ const options = [
   ['Testing Rate', 'testing-rate'],
 ];
 
-
 const Map: React.FC<ListState> = () => {
   const [selected, setSelected] = useState(options[0][0]);
 
@@ -36,11 +35,10 @@ const Map: React.FC<ListState> = () => {
       ])}
     >
       <button type="button" className={classes['full-screen-btn']}>
-         <FullScreenIcon />
+        <FullScreenIcon />
       </button>
       <div className={styles['map-area']}>
         <DropDown options={options} selected={selected} changeSelected={changeSelected} />
-
       </div>
       <div className={classNames([classes['search'], classes['country-cases-search']])}>
         <div className={classes['input']}>
@@ -96,7 +94,6 @@ const Map: React.FC<ListState> = () => {
                   &gt; 50,000 – 100,000
                 </li>
               </ul>
-
             </div>
           </div>
           <div className={classNames([styles['legend'], styles['map-nav']])}>
