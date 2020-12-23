@@ -7,13 +7,14 @@ import RecoveryPerCity from '@/components/Tables/RecoveryTable/RecoveryPerCity';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
 import dropdownStyles from '@/components/reusable/DropDown/dropdown.scss';
+import { ListState } from '@/types/types';
 
 const options = [
   ['US State Level', 'state-level'],
   ['Total Test Results in US', 'tested'],
 ];
 
-const RecoveryTable = (): JSX.Element => {
+const RecoveryTable: React.FC<ListState> = ({ countries }): JSX.Element => {
   const [selected, setSelected] = useState(options[0][0]);
 
   const changeSelected = (newSelected: string) => {
@@ -39,7 +40,7 @@ const RecoveryTable = (): JSX.Element => {
         <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
           <div className={classNames([classes['list'], styles['recovery-cases-list']])}>
             <ul>
-              <RecoveryPerCity />
+              <RecoveryPerCity countries={countries} />
             </ul>
           </div>
         </div>
