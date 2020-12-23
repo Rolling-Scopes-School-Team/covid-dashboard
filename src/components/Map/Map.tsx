@@ -10,7 +10,7 @@ import { LayersControl, MapContainer, TileLayer, Popup, Circle, FeatureGroup } f
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
-import { ListState } from '@/types/types';
+import { CountryType, ListState } from '@/types/types';
 
 const options = [
   ['Cases', 'cases'],
@@ -19,11 +19,11 @@ const options = [
   ['Case-Fatality Ratio', 'fatality-ratio'],
   ['Testing Rate', 'testing-rate'],
 ];
-// const getStatistic = (str: string, countries: Array<CountryType>) => {
-//   const array: number[] = [];
-//   countries.map(i => array.push(i[str]));
-//   return array;
-// };
+const getStatistic = (str: string, countries: Array<CountryType>) => {
+  const array: number[] = [];
+  countries.map(i => array.push(i[str]));
+  return array;
+};
 
 const Map: React.FC<ListState> = ({ countries }) => {
   const [selected, setSelected] = useState(options[0][0]);
@@ -32,7 +32,13 @@ const Map: React.FC<ListState> = ({ countries }) => {
   };
   const defaultLatLng: LatLngTuple = [48.865572, 2.283523];
   const activeSelect = options.filter(e => (e[0] === selected ? e[1] : false));
-  const [color, setColor] = useState({ fillColor: 'red', color: 'red' });
+  const maxNumber = Math.max(...getStatistic(activeSelect[0][1], countries));
+  let average = 0;
+  if (getStatistic(activeSelect[0][1], countries).length) {
+    average =
+      getStatistic(activeSelect[0][1], countries).reduce((a, b) => a + b) /
+      getStatistic(activeSelect[0][1], countries).length;
+  }
 
   return (
     <div
@@ -45,25 +51,7 @@ const Map: React.FC<ListState> = ({ countries }) => {
     >
       <div className={styles['map-area']}>
         <DropDown options={options} selected={selected} changeSelected={changeSelected} />
-        <div className={classNames([classes['search'], classes['country-cases-search']])}>
-          <div className={classes['input']}>
-            <input type="input" name="search" placeholder="Search by Country/Region" />
-            <button type="button">{/* <LoupeIcon /> */}</button>
-          </div>
-        </div>
         <MapContainer className={styles['map-container']} center={defaultLatLng} zoom={3}>
-          <select
-            onChange={event =>
-              setColor({
-                fillColor: event.target.value,
-                color: event.target.value,
-              })
-            }
-          >
-            <option value="red">Total confirmed</option>
-            <option value="green">Total death</option>
-            <option value="blue">New confirmed</option>
-          </select>
           <LayersControl position="topleft">
             <LayersControl.BaseLayer checked name="Dark mode">
               <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
@@ -73,6 +61,27 @@ const Map: React.FC<ListState> = ({ countries }) => {
             </LayersControl.BaseLayer>
           </LayersControl>
           {countries.map(country => {
+            let activeColor = '';
+            let rad = 0;
+            if (country[activeSelect[0][1]] >= 0 && country[activeSelect[0][1]] < average / 2) {
+              activeColor = 'green';
+              rad = 10000;
+            } else if (
+              country[activeSelect[0][1]] > average / 2 &&
+              country[activeSelect[0][1]] < average
+            ) {
+              activeColor = 'orange';
+              rad = 30000;
+            } else if (
+              country[activeSelect[0][1]] > average &&
+              country[activeSelect[0][1]] < maxNumber / 2
+            ) {
+              activeColor = 'red';
+              rad = 50000;
+            } else {
+              activeColor = 'darkred';
+              rad = 100000;
+            }
             return (
               <FeatureGroup
                 key={country.country}
@@ -87,8 +96,8 @@ const Map: React.FC<ListState> = ({ countries }) => {
               >
                 <Circle
                   center={[country.countryInfo.lat, country.countryInfo.long]}
-                  radius={10000}
-                  pathOptions={color}
+                  radius={rad}
+                  pathOptions={{ fillOpacity: 1, color: activeColor, fillColor: activeColor }}
                   fillOpacity={1}
                 />
                 <Popup>
