@@ -9,33 +9,35 @@ import classes from '@/components/index.scss';
 const Footer = (): JSX.Element => (
   <footer className={classNames([classes['container'], classes['footer']])}>
     <div className={styles['logo']}>
-      <Logo />
+      <a href="https://rs.school">
+        <Logo />
+      </a>
     </div>
     <div className={styles['github-links']}>
       <ul>
         <span className={styles['devs']}>App developers:</span>
         <li>
-          <a href="https://github.com/">
+          <a href="https://github.com/buiiz">
             <GitHunIcon />
-            <span>Git account</span>
+            <span>Ivan Tur</span>
           </a>
         </li>
         <li>
-          <a href="https://github.com/">
+          <a href="https://github.com/dmitryzozulia">
             <GitHunIcon />
-            <span>Git account</span>
+            <span>Dmitry Zozulia</span>
           </a>
         </li>
         <li>
-          <a href="https://github.com/">
+          <a href="https://github.com/Deeathwiing">
             <GitHunIcon />
-            <span>Git account</span>
+            <span>Andrey Korotkin</span>
           </a>
         </li>
         <li>
-          <a href="https://github.com/">
+          <a href="https://github.com/boriskrasko">
             <GitHunIcon />
-            <span>Git account</span>
+            <span>Boris Krasko</span>
           </a>
         </li>
       </ul>
