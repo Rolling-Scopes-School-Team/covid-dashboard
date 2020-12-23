@@ -7,14 +7,14 @@ import styles from '@/components/Tables/DeathTable/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
 import dropdownStyles from '@/components/reusable/DropDown/dropdown.scss';
+import { ListState } from '@/types/types';
 
 const options = [
   ['Global Deaths', 'deaths'],
   ['Global Recovered', 'recovered'],
 ];
 
-
-const DeathTable = (): JSX.Element => {
+const DeathTable: React.FC<ListState> = ({ countries }): JSX.Element => {
   const [selected, setSelected] = useState(options[0][0]);
 
   const changeSelected = (newSelected: string) => {
@@ -33,12 +33,11 @@ const DeathTable = (): JSX.Element => {
           <DropDown options={options} selected={selected} changeSelected={changeSelected} />
         </div>
 
-
         <div className={styles['global-counter_deaths']}>1,570,642</div>
         <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
           <div className={classNames([classes['list'], styles['death-cases-list']])}>
             <ul>
-              <DeathsPerCountry />
+              <DeathsPerCountry countries={countries} />
             </ul>
           </div>
         </div>
