@@ -2,7 +2,11 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 
 // import { getSyntheticTrailingComments } from 'typescript';
+import Basemaps from '@/components/Icons/Basemaps';
+import Bookmark from '@/components/Icons/Bookmark';
+import Close from '@/components/Icons/Close';
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
+import Legend from '@/components/Icons/Legend';
 import LoupeIcon from '@/components/Icons/LoupeIcon';
 import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
@@ -60,18 +64,18 @@ const Map: React.FC<ListState> = () => {
           </div>
           <div className={styles['bookmarks-select-panel']}>
             <button className={styles['map-nav-btn']} type="button">
-              {/* <Bookmark /> */}
+              <Bookmark />
             </button>
             <button className={styles['map-nav-btn']} type="button">
-              {/* <Legend /> */}
+              <Legend />
             </button>
             <button className={styles['map-nav-btn']} type="button">
-              {/* <Basemaps /> */}
+              <Basemaps />
             </button>
           </div>
           <div className={classNames([styles['bookmarks'], styles['map-nav']])}>
             <button type="button" className={styles['close-btn']}>
-              {/* <Close /> */}
+              <Close />
             </button>
             <div className={classNames([classes['heading'], styles['bookmark-heading']])}>
               Bookmarks
@@ -116,7 +120,7 @@ const Map: React.FC<ListState> = () => {
           </div>
           <div className={classNames([styles['basemaps'], styles['map-nav']])}>
             <button type="button" className={classes['close-btn']}>
-              {/* <Close /> */}
+              <Close />
             </button>
             <div className={classNames([classes['heading'], styles['basemaps-heading']])}>
               Basemaps
