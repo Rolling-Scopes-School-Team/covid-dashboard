@@ -19,9 +19,7 @@ import {
 import './index.scss';
 
 const App = (): JSX.Element => {
-  const globalCases = useSelector<RootState, RootState['globalCases']>(
-    state => state.globalCases
-  );
+  const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
 
   const dispatch = useDispatch();
