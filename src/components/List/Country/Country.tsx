@@ -10,10 +10,15 @@ const Country: React.FC<CountryState> = ({ countries, selected, options }) => {
 
   const handleClick = (element: CountryType) => dispatch(dataAC.selectedAC(element));
 
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.random() * (max - min) + min;
+  };
+
   return (
     <React.Fragment>
       {countries.map(element => (
         <li
+          key={getRandomArbitrary(0, 1e100)}
           // eslint-disable-next-line jsx-a11y/no-noninteractive-element-to-interactive-role
           role="button"
           onKeyPress={() => null}

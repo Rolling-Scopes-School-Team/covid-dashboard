@@ -1,25 +1,19 @@
 import classNames from 'classnames';
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import RecoveryPerCity from '@/components/Tables/RecoveryTable/RecoveryPerCity';
+import RecoveryTableStyles from '@/components/Tables/RecoveryTable/index.scss';
 import classes from '@/components/index.scss';
-import DropDown from '@/components/reusable/DropDown/DropDown';
-import dropdownStyles from '@/components/reusable/DropDown/dropdown.scss';
+import { RootState } from '@/redux/ReduxStore';
 import { ListState } from '@/types/types';
 
-const options = [
-  ['US State Level', 'state-level'],
-  ['Total Test Results in US', 'tested'],
-];
-
-const RecoveryTable: React.FC<ListState> = ({ countries }): JSX.Element => {
-  const [selected, setSelected] = useState(options[0][0]);
-
-  const changeSelected = (newSelected: string) => {
-    setSelected(newSelected);
-  };
+const RecoveryTable: React.FC<ListState> = (): JSX.Element => {
+  const selectedCountry = useSelector<RootState, RootState['selectedCountry']>(
+    state => state.selectedCountry
+  );
 
   return (
     <div
@@ -33,14 +27,16 @@ const RecoveryTable: React.FC<ListState> = ({ countries }): JSX.Element => {
         <FullScreenIcon />
       </button>
       <div className={classes['wrapper']}>
-        <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
-          <DropDown options={options} selected={selected} changeSelected={changeSelected} />
-        </div>
-        <div className={styles['global-counter_recovery']}>Deaths, Recovered</div>
-        <div className={classNames([classes['scroll-container'], styles['scroll-container']])}>
+        <div className={styles['global-counter_recovery']}>{selectedCountry.country}</div>
+        <div
+          className={classNames([
+            classes['scroll-container'],
+            RecoveryTableStyles['scroll-container'],
+          ])}
+        >
           <div className={classNames([classes['list'], styles['recovery-cases-list']])}>
             <ul>
-              <RecoveryPerCity countries={countries} />
+              <RecoveryPerCity selectedCountry={selectedCountry} />
             </ul>
           </div>
         </div>

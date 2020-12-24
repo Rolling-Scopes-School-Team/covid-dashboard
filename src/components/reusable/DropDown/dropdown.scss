@@ -49,6 +49,15 @@
   border: 1px solid transparent;
 }
 
+.scroll {
+  margin-top: 5px;
+  width: 220px;
+  height: 322px;
+  overflow-y: scroll;
+  width: 250px;
+  max-height: 104px;
+}
+
 .open-options {
   opacity: 1;
   visibility: visible;
