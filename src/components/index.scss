@@ -45,6 +45,7 @@ main {
   position: relative;
   width: 1024px;
   min-width: 320px;
+  height: 768px;
   margin: 0 auto;
   padding: 0 20px 20px 20px;
   overflow-x: hidden;
@@ -300,7 +301,7 @@ input:focus::placeholder {
     width: 100%;
     max-width: 1640px;
     min-height: 720px;
-    max-height: 1080px;
+    height: 768px;
     height: auto;
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-areas:
@@ -321,12 +322,7 @@ input:focus::placeholder {
   }
   .container_l {
     width: 99.5%;
-    height: calc(80vh - 100vh / 50%);
     min-height: 600px;
-  }
-  .map-intaractive-content {
-    height: 70vh;
-    min-height: 520px;
   }
 }
 
