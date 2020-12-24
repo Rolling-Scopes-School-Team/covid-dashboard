@@ -23,7 +23,7 @@ const GlobalCases: React.FC<GlobalCasesState> = ({ globalCases }) => {
         Global Cases
       </div>
       <div className={classNames([classes['counter'], styles['global-cases-counter']])}>
-        {globalCases}
+        {globalCases.cases}
       </div>
     </div>
   );

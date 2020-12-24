@@ -81,7 +81,7 @@ export type ListActionType = {
 };
 
 export interface GlobalCasesState {
-  globalCases: number;
+  globalCases: Global;
 }
 
 export interface ListState {

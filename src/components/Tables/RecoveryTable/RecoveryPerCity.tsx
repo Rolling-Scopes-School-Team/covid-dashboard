@@ -6,10 +6,14 @@ import classes from '@/components/index.scss';
 import { ListState } from '@/types/types';
 
 const RecoveryPerCity: React.FC<ListState> = ({ countries }): JSX.Element => {
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.random() * (max - min) + min;
+  };
+
   return (
     <React.Fragment>
       {countries.map(element => (
-        <li className={styles['table-item']}>
+        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
           <span
             className={classNames([
               styles['counter'],

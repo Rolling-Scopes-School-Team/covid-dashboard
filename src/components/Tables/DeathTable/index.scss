@@ -32,6 +32,9 @@
 
 .table-item {
   width: 97% !important;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .recovery-cases-list {

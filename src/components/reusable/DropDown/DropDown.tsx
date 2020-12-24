@@ -7,6 +7,10 @@ import { DropDownState } from '@/types/types';
 const DropDown: React.FC<DropDownState> = ({ options, selected, changeSelected }) => {
   const [isOpen, setTogle] = useState(false);
 
+  const getRandomArbitrary = (min: number, max: number) => {
+    return Math.random() * (max - min) + min;
+  };
+
   return (
     <div
       role="button"
@@ -19,10 +23,16 @@ const DropDown: React.FC<DropDownState> = ({ options, selected, changeSelected }
         <span>{selected}</span>
         <div className={dropdown['arrow']} />
       </div>
-      <div className={classNames(dropdown['options'], isOpen && dropdown['open-options'])}>
+      <div
+        className={classNames(
+          dropdown['options'],
+          dropdown['scroll'],
+          isOpen && dropdown['open-options']
+        )}
+      >
         {options.map(element => (
           <span
-            key={element[1]}
+            key={getRandomArbitrary(0, 1e100)}
             role="button"
             onKeyPress={() => null}
             tabIndex={0}
