@@ -243,6 +243,10 @@ input:focus::placeholder {
   }
 }
 
+.country-hover {
+  outline: none;
+}
+
 .full-screen-btn {
   position: absolute;
   top: 4px;
