@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import styles from '@/components/List/Country/index.scss';
 import classes from '@/components/index.scss';
 import dataAC from '@/redux/actionCreators/dataActionCreator';
 import { CountryState, CountryType } from '@/types/types';
@@ -35,6 +36,11 @@ const Country: React.FC<CountryState> = ({ countries, selected, options }) => {
               (selected === options[5][0] && element.recovered)}
           </span>
           <span className={classes['country']}>{element.country}</span>
+          <img
+            className={styles['country-flag']}
+            src={element.countryInfo.flag}
+            alt={element.country}
+          />
         </li>
       ))}
     </React.Fragment>
