@@ -9,8 +9,14 @@ const RecoveryPerCity: React.FC<ListState> = ({ countries }): JSX.Element => {
   return (
     <React.Fragment>
       {countries.map(element => (
-        <li>
-          <span className={classNames([classes['counter'], styles['counter-deaths']])}>
+        <li className={styles['table-item']}>
+          <span
+            className={classNames([
+              styles['counter'],
+              classes['counter'],
+              styles['counter-deaths'],
+            ])}
+          >
             {element.deaths}
           </span>
           <span className={classNames([styles['counter-value'], styles['counter-deaths-value']])}>

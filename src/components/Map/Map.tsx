@@ -94,6 +94,7 @@ const Map: React.FC<ListState> = ({ countries }) => {
                 key={country.country}
                 eventHandlers={{
                   click: e => {
+                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
                     if (e.target) {
                       // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
                       e.target.openPopup();

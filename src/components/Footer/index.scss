@@ -1,8 +1,8 @@
 footer {
   width: 100%;
   max-width: 978px;
-  min-height: 60px;
-  height: 70px;
+  min-height: 50px;
+  height: 50px;
   margin-top: 5px;
   display: flex;
   justify-content: space-between;
@@ -32,7 +32,6 @@ footer ul {
   color: var(--text);
   font-size: 11px;
   white-space: nowrap;
-  grid-gap: 10px;
 }
 
 footer ul span {
@@ -73,6 +72,10 @@ footer ul li {
   align-items: center;
 }
 
+.github-links svg {
+  margin-right: 8px;
+}
+
 .year {
   color: var(--blue);
   font-size: 14px;
@@ -104,11 +107,14 @@ footer ul li {
   .github-links ul li a {
     font-size: 14px;
   }
+  .github-links ul span {
+    margin-left: 0;
+  }
   .year {
     margin: 40px auto 5px;
   }
   .github-links a {
-    width: 80px;
+    width: 150px;
     margin: 5px auto;
     display: flex;
     justify-content: flex-start;
