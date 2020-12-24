@@ -5,8 +5,7 @@ import thunk from 'redux-thunk';
 import globalCasesReducer from '@/redux/reducers/globalCasesReducer';
 import graphReducer from '@/redux/reducers/graphReducer';
 import listReducer from '@/redux/reducers/listReducer';
-
-import selectedCountryReducer from './reducers/selectedCountryReducer';
+import selectedCountryReducer from '@/redux/reducers/selectedCountryReducer';
 
 const persistedState = {};
 
