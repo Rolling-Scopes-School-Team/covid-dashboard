@@ -93,10 +93,8 @@ const Map: React.FC<ListState> = ({ countries }) => {
               <FeatureGroup
                 key={country.country}
                 eventHandlers={{
-                  click: e => {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                  click: (e: { target: { openPopup: () => void } }) => {
                     if (e.target) {
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
                       e.target.openPopup();
                     }
                   },
@@ -114,7 +112,14 @@ const Map: React.FC<ListState> = ({ countries }) => {
                       <b>Country:</b> {country.country}
                     </span>
                     <span>
-                      <b>{selected}: </b> {country[activeSelect[0][1]]}
+                      <b>Cases: </b> {country.cases}
+                    </span>
+                    <span>
+                      <b>Recovered: </b> {country.recovered}
+                    </span>
+
+                    <span>
+                      <b>Death: </b> {country.deaths}
                     </span>
                   </div>
                 </Popup>
