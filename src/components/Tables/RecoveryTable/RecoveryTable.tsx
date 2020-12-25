@@ -27,7 +27,9 @@ const RecoveryTable: React.FC<ListState> = (): JSX.Element => {
         <FullScreenIcon />
       </button>
       <div className={classes['wrapper']}>
-        <div className={styles['global-counter_recovery']}>{selectedCountry.country}</div>
+        <div className={styles['global-counter_recovery']}>
+          {(selectedCountry.country !== '0' && selectedCountry.country) || 'Global'}
+        </div>
         <div
           className={classNames([
             classes['scroll-container'],

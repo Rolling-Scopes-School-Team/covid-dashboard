@@ -7,7 +7,7 @@ const initialState = {
   cases: 18473716,
   casesPerOneMillion: 55657,
   continent: 'North America',
-  country: 'USA',
+  country: '0',
   countryInfo: {
     flag: 'https://disease.sh/assets/img/flags/us.png',
     iso2: 'US',
