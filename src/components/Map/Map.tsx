@@ -64,7 +64,7 @@ const Map: React.FC<ListState> = ({ countries }) => {
         <MapContainer className={styles['map-container']} center={defaultLatLng} zoom={3}>
           <LayersControl position="topleft">
             <LayersControl.BaseLayer checked name="Dark mode">
-              <TileLayer url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png" />
+              <TileLayer url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png" />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name="Light mode">
               <TileLayer url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png" />

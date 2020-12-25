@@ -7,6 +7,12 @@
   display: flex;
 }
 
+.chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .graph button {
   background: transparent;
   color: var(--blue);

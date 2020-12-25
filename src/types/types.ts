@@ -8,6 +8,10 @@ export type Data = {
   Countries: Array<CountryType>;
 };
 
+export type DataGraph = {
+  dataGraph: Array<CountryForGraph>;
+};
+
 export type Global = {
   updated: number;
   cases: number;
@@ -100,13 +104,18 @@ export interface CountryState extends DropDownState {
 }
 
 export interface CountryForGraph {
+  Active: number;
+  City: string;
+  CityCode: string;
+  Confirmed: number;
   Country: string;
   CountryCode: string;
+  Date: string;
+  Deaths: number;
   Lat: string;
   Lon: string;
-  Cases: number;
-  Status: string;
-  Date: string;
+  Province: string;
+  Recovered: number;
 }
 
 export interface GraphActionType {

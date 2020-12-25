@@ -21,12 +21,13 @@ import './index.scss';
 const App = (): JSX.Element => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
   const countries = useSelector<RootState, RootState['countries']>(state => state.countries);
+  const dataGraph = useSelector<RootState, RootState['graph']>(state => state.graph);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(FetchData());
-    dispatch(FetchDataForGraph());
+    dispatch(FetchDataForGraph('India'));
     dispatch(FetchGlobalData());
   }, []);
 
@@ -39,7 +40,7 @@ const App = (): JSX.Element => {
         <DateCase />
         <Map countries={countries} />
         <Table countries={countries} />
-        <Graph />
+        <Graph dataGraph={dataGraph} />
         <Footer />
       </main>
     </React.Fragment>
