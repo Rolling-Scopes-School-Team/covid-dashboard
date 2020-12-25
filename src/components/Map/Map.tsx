@@ -13,18 +13,21 @@ import DropDown from '@/components/reusable/DropDown/DropDown';
 import { CountryType, ListState } from '@/types/types';
 
 const options = [
-  ['Cases', 'cases'],
-  ['Active Cases', 'active'],
-  ['Deaths', 'deaths'],
-  ['Recovered', 'recovered'],
-  ['Cases per million', 'casesPerOneMillion'],
-  ['Active cases per million', 'activePerOneMillion'],
-  ['Deaths per one million', 'deathsPerOneMillion'],
-  ['Recovered per one million', 'recoveredPerOneMillion'],
+  ['Global Cases', 'cases'],
+  ['Global Recovered', 'recovered'],
+  ['Global Deaths', 'deaths'],
+
   ['Today cases', 'todayCases'],
   ['Today deaths', 'todayDeaths'],
-  ['Tests', 'tests'],
-  ['Tests per one million', 'testsPerOneMillion'],
+  ['Today recovered', 'todayRecovered'],
+
+  ['Cases per 100k', 'casesPerOneMillion'],
+  ['Deaths per 100k', 'deathsPerOneMillion'],
+  ['Recovered per 100k', 'recoveredPerOneMillion'],
+
+  ['Cases per 100k for last day', 'casesPerOneMillion'],
+  ['Deaths per 100k for last day', 'deathsPerOneMillion'],
+  ['Recovered per 100k for last day', 'recoveredPerOneMillion'],
 ];
 const getStatistic = (str: string, countries: Array<CountryType>) => {
   const array: number[] = [];
@@ -93,11 +96,14 @@ const Map: React.FC<ListState> = ({ countries }) => {
               <FeatureGroup
                 key={country.country}
                 eventHandlers={{
-                  click: e => {
-                    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+                  mouseover: (e: { target: { openPopup: () => void } }) => {
                     if (e.target) {
-                      // eslint-disable-next-line @typescript-eslint/no-unsafe-call,@typescript-eslint/no-unsafe-member-access
                       e.target.openPopup();
+                    }
+                  },
+                  mouseout: (e: { target: { closePopup: () => void } }) => {
+                    if (e.target) {
+                      e.target.closePopup();
                     }
                   },
                 }}
