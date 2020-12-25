@@ -28,21 +28,21 @@ const Graph: React.FC<DataGraph> = ({ dataGraph }): JSX.Element => {
     state => state.selectedCountry
   );
   const [selected, setSelected] = useState(options[0][0]);
+
   const changeSelected = (newSelected: string) => setSelected(newSelected);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FetchDataForGraph(selectedCountry.country));
-  }, []);
+  }, [dispatch, selectedCountry.country]);
 
   const data: Igraph[] = [];
   const activeSelect = options.filter(e => (e[0] === selected ? e[1] : false));
-  // eslint-disable-next-line no-console
-  console.log(dataGraph);
 
-  dataGraph.map(i =>
+  dataGraph
+    .filter(i => !i.Province)
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    data.push({ name: i.Date.slice(0, 10), cases: i[activeSelect[0][1]] })
-  );
+    .map(i => data.push({ name: i.Date.slice(0, 10), cases: i[activeSelect[0][1]] }));
 
   return (
     <div

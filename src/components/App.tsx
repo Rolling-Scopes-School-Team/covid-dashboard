@@ -27,7 +27,7 @@ const App = (): JSX.Element => {
 
   useEffect(() => {
     dispatch(FetchData());
-    dispatch(FetchDataForGraph('pl'));
+    dispatch(FetchDataForGraph('India'));
     dispatch(FetchGlobalData());
   }, []);
 
