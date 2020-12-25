@@ -43,10 +43,12 @@ export const FetchGlobalData = () => async (dispatch: (arg0: GlobalCasesActionTy
   }
 };
 
-export const FetchDataForGraph = () => async (dispatch: (arg0: GraphActionType) => void) => {
+export const FetchDataForGraph = (country: string) => async (
+  dispatch: (arg0: GraphActionType) => void
+) => {
   try {
     const responseForGraph: ResponseType = await axios.get(
-      'https://api.covid19api.com/dayone/country/south-africa/status/confirmed/live'
+      `https://api.covid19api.com/dayone/country/${country}`
     );
 
     const { data } = responseForGraph;
