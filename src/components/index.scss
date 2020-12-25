@@ -246,6 +246,8 @@ input:focus::placeholder {
 
 .country-hover {
   outline: none;
+  display: flex;
+  justify-content: space-between;
 }
 
 .full-screen-btn {

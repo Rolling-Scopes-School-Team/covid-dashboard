@@ -1,5 +1,8 @@
-.country-flag {
-  width: 20px;
-  float: right;
+.country-flag, .country {
   margin-right: 10px;
+}
+
+.country-flag img {
+  width: 20px;
+  height: 12px;
 }
