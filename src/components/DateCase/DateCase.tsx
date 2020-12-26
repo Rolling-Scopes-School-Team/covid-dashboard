@@ -9,8 +9,22 @@ import { RootState } from '@/redux/ReduxStore';
 
 const DateCase: React.FC = () => {
   const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
+  const formatterDate = new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+  const formatterTime = new Intl.DateTimeFormat('en-US', {
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric',
+    hour12: false,
+  });
 
   const date = new Date(globalCases.updated);
+  const formattedDate = formatterDate.format(date);
+  const formattedTime = formatterTime.format(date);
+
   return (
     <div
       className={classNames([
@@ -25,8 +39,8 @@ const DateCase: React.FC = () => {
       </button>
       <div className={classNames([classes['heading'], styles['date-heading']])}>Last Updated</div>
       <div className={classes['update-time']}>
-        {/* <span>{`${date.getUTCMonth() + 1}:${date.getUTCDate()}:${date.getFullYear()}`}</span> */}
-        <span>{String(date)}</span>;
+        <p>{formattedDate}</p>
+        <p>{formattedTime}</p>
       </div>
     </div>
   );
