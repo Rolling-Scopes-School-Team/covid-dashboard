@@ -1,0 +1,12 @@
+.keyboard-wrapper {
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: bottom 0.4s;
+
+  &--hidden {
+    bottom: -100%;
+  }
+}

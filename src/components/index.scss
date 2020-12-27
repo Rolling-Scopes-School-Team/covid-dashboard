@@ -167,10 +167,6 @@ main {
 }
 
 /* Search */
-.search {
-  max-width: 212px;
-}
-
 .search .input {
   background: var(--darkness);
   border-radius: 6px;
@@ -197,8 +193,6 @@ main {
   outline: none;
   color: var(--text);
   padding: 6px;
-  font-size: 8px;
-  width: 90%;
 }
 
 .input input::placeholder {
@@ -206,11 +200,13 @@ main {
 }
 
 .search {
+  min-width: 220px;
+  width: calc(100% - 10px);
   margin-top: 5px;
-  width: 206px;
   display: flex;
   justify-content: flex-end;
   opacity: 0.7;
+  position: relative;
 }
 
 .search:hover {
