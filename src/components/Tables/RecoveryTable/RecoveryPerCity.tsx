@@ -16,496 +16,74 @@ const RecoveryPerCity: React.FC<{ selectedCountry: CountryType }> = ({
 
   const globalCases = useSelector<RootState, RootState['globalCases']>(state => state.globalCases);
 
+  const options = [
+    ['cases', 'Cases'],
+    ['deaths', 'Deaths'],
+    ['recovered', 'Recovered'],
+    ['active', 'Active'],
+    ['activePerOneMillion', 'Active Per One Million'],
+    ['casesPerOneMillion', 'Cases Per One Million'],
+    ['continent', 'Continent'],
+    ['critical', 'Critical'],
+    ['criticalPerOneMillion', 'Critical Per One Million'],
+    ['deathsPerOneMillion', 'Deaths Per One Million'],
+    ['oneCasePerPeople', 'One Case Per People'],
+    ['oneDeathPerPeople', 'One Death Per People'],
+    ['oneTestPerPeople', 'One Test Per People'],
+    ['population', 'Population'],
+    ['recoveredPerOneMillion', 'Recovered Per One Million'],
+    ['tests', 'Tests'],
+    ['testsPerOneMillion', 'Test Per One Million'],
+    ['todayCases', 'Today Cases'],
+    ['todayDeaths', 'Today Deaths'],
+    ['todayRecovered', 'Today Recovered'],
+  ];
+
   if (selectedCountry.country !== '0') {
     return (
       <React.Fragment>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.cases}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Cases
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.deaths}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Deaths
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.recovered}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Recovered
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.active}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Active
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.activePerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Active Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.casesPerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Cases Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.continent}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Continent
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.critical}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Critical
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.criticalPerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Critical Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.deathsPerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Deaths Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.oneCasePerPeople}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            One Case Per People
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.oneDeathPerPeople}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            One Death Per People
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.oneTestPerPeople}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            One Test Per People
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.population}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Population
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.recoveredPerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Recovered Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.tests}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Tests
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.testsPerOneMillion}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Test Per One Million
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.todayCases}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Today Cases
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.todayDeaths}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Today Deaths
-          </span>
-        </li>
-        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-          <span
-            className={classNames([
-              styles['counter'],
-              classes['counter'],
-              styles['counter-deaths'],
-            ])}
-          >
-            {selectedCountry.todayRecovered}
-          </span>
-          <span
-            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
-          >
-            Today Recovered
-          </span>
-        </li>
+        {options.map(option => (
+          <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
+            <span
+              className={classNames([
+                styles['counter'],
+                classes['counter'],
+                styles['counter-deaths'],
+              ])}
+            >
+              {selectedCountry[option[0]]}
+            </span>
+            <span
+              className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
+            >
+              {option[1]}
+            </span>
+          </li>
+        ))}
       </React.Fragment>
     );
   }
 
   return (
     <React.Fragment>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.cases}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Cases
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.deaths}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Deaths
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.recovered}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Recovered
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.active}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Active
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.activePerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Active Per One Million
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.casesPerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Cases Per One Million
-        </span>
-      </li>
-
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.critical}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Critical
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.criticalPerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Critical Per One Million
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.deathsPerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Deaths Per One Million
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.population}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Population
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.recoveredPerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Recovered Per One Million
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.tests}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Tests
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.testsPerOneMillion}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Test Per One Million
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.todayCases}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Today Cases
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.todayDeaths}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Today Deaths
-        </span>
-      </li>
-      <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
-        <span
-          className={classNames([styles['counter'], classes['counter'], styles['counter-deaths']])}
-        >
-          {globalCases.todayRecovered}
-        </span>
-        <span className={classNames([styles['counter-value'], styles['counter-recovered-value']])}>
-          Today Recovered
-        </span>
-      </li>
+      {options.map(option => (
+        <li className={styles['table-item']} key={getRandomArbitrary(0, 1e100)}>
+          <span
+            className={classNames([
+              styles['counter'],
+              classes['counter'],
+              styles['counter-deaths'],
+            ])}
+          >
+            {globalCases[option[0]]}
+          </span>
+          <span
+            className={classNames([styles['counter-value'], styles['counter-recovered-value']])}
+          >
+            {option[1]}
+          </span>
+        </li>
+      ))}
     </React.Fragment>
   );
 };

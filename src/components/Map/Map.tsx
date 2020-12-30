@@ -3,10 +3,6 @@ import { LatLngTuple } from 'leaflet';
 import React, { useState } from 'react';
 import { LayersControl, MapContainer, TileLayer, Popup, Circle, FeatureGroup } from 'react-leaflet';
 
-// import { getSyntheticTrailingComments } from 'typescript';
-// import FullScreenIcon from '@/components/Icons/FullScreenIcon';
-// import LoupeIcon from '@/components/Icons/LoupeIcon';
-// import MapList from '@/components/Map/MapList/MapList';
 import styles from '@/components/Map/index.scss';
 import classes from '@/components/index.scss';
 import DropDown from '@/components/reusable/DropDown/DropDown';
