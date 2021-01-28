@@ -104,7 +104,7 @@ main {
   min-height: 83px;
   background: var(--black);
   border-radius: 6px;
-  margin: 2px;
+  margin: 1px auto;
   padding: 14px 18px 16px 18px;
   border: 1px solid transparent;
   z-index: 0;
@@ -345,7 +345,7 @@ input:focus::placeholder {
   }
 
   .container {
-    width: 99.2%;
+    width: 100%;
     padding-right: 2px;
   }
 
