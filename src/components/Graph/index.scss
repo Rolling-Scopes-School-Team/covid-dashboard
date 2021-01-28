@@ -19,3 +19,9 @@
   outline: none;
   border: none;
 }
+
+@media screen and (min-width: 540px) {
+  [full] .chart {
+    transform: scale(2);
+  }
+}

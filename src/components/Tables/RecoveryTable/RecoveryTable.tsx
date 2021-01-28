@@ -1,7 +1,8 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import Close from '@/components/Icons/Close';
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import styles from '@/components/Tables/DeathTable/index.scss';
 import RecoveryPerCity from '@/components/Tables/RecoveryTable/RecoveryPerCity';
@@ -15,6 +16,14 @@ const RecoveryTable: React.FC<ListState> = (): JSX.Element => {
     state => state.selectedCountry
   );
 
+  const [isFullScreen, setFullScreen] = useState(true);
+  /* eslint-disable */
+  const handleClick = (event: any) => {
+    event.currentTarget.parentNode.toggleAttribute('full');
+    setFullScreen(!isFullScreen);
+  };
+  let screenModeIcon = isFullScreen ? <FullScreenIcon /> : <Close />;
+
   return (
     <div
       className={classNames([
@@ -23,8 +32,8 @@ const RecoveryTable: React.FC<ListState> = (): JSX.Element => {
         classes['recovery-cases'],
       ])}
     >
-      <button type="button" className={classes['full-screen-btn']}>
-        <FullScreenIcon />
+      <button type="button" className={classes['full-screen-btn']} onClick={handleClick}>
+        {screenModeIcon}
       </button>
       <div className={classes['wrapper']}>
         <div className={styles['global-counter_recovery']}>

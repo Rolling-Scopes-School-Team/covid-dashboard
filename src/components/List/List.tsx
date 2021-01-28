@@ -12,6 +12,8 @@ import DropDown from '@/components/reusable/DropDown/DropDown';
 import dropdownStyles from '@/components/reusable/DropDown/dropdown.scss';
 import { ListState } from '@/types/types';
 
+import Close from '../Icons/Close';
+
 const options = [
   ['Cases by Country', 'cases'],
   ['New Confirmed by Country', 'newConfirmed'],
@@ -31,6 +33,14 @@ const List: React.FC<ListState> = ({ countries }) => {
     setInput(event.target.value);
   };
 
+  const [isFullScreen, setFullScreen] = useState(true);
+  /* eslint-disable */
+  const handleClick = (event: any) => {
+    event.currentTarget.parentNode.toggleAttribute('full');
+    setFullScreen(!isFullScreen);
+  };
+  let screenModeIcon = isFullScreen ? <FullScreenIcon /> : <Close />;
+
   return (
     <React.Fragment>
       <div
@@ -40,8 +50,8 @@ const List: React.FC<ListState> = ({ countries }) => {
           classes['country-cases'],
         ])}
       >
-        <button type="button" className={classes['full-screen-btn']}>
-          <FullScreenIcon />
+        <button type="button" className={classes['full-screen-btn']} onClick={handleClick}>
+          {screenModeIcon}
         </button>
         <div className={classes['wrapper']}>
           <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>

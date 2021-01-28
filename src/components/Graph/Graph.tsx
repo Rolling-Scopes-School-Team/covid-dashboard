@@ -11,6 +11,8 @@ import { RootState } from '@/redux/ReduxStore';
 import { FetchDataForGraph } from '@/redux/apiActionCreators/dataActionCreatorAPI';
 import { DataGraph } from '@/types/types';
 
+import Close from '../Icons/Close';
+
 interface Igraph {
   name: string;
   cases: number;
@@ -43,6 +45,14 @@ const Graph: React.FC<DataGraph> = ({ dataGraph }): JSX.Element => {
   useEffect(() => {
     dispatch(FetchDataForGraph(selectedCountry.country));
   }, [dispatch, selectedCountry.country]);
+
+  const [isFullScreen, setFullScreen] = useState(true);
+  /* eslint-disable */
+  const handleClick = (event: any) => {
+    event.currentTarget.parentNode.toggleAttribute('full');
+    setFullScreen(!isFullScreen);
+  };
+  let screenModeIcon = isFullScreen ? <FullScreenIcon /> : <Close />;
 
   const data: Igraph[] = [];
   const activeSelect = options.filter(e => (e[0] === selected ? e[1] : false));
@@ -83,8 +93,8 @@ const Graph: React.FC<DataGraph> = ({ dataGraph }): JSX.Element => {
         classes['graph'],
       ])}
     >
-      <button type="button" className={classes['full-screen-btn']}>
-        <FullScreenIcon />
+      <button type="button" className={classes['full-screen-btn']} onClick={handleClick}>
+        {screenModeIcon}
       </button>
       <DropDown options={options} selected={selected} changeSelected={changeSelected} />
       <div className={styles['chart']}>

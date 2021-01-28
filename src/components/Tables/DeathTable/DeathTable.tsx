@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import Close from '@/components/Icons/Close';
 import FullScreenIcon from '@/components/Icons/FullScreenIcon';
 import DeathsPerCountry from '@/components/Tables/DeathTable/DeathsPerCountry';
 import styles from '@/components/Tables/DeathTable/index.scss';
@@ -35,12 +36,20 @@ const DeathTable: React.FC<ListState> = ({ countries }): JSX.Element => {
 
   const changeSelected = (newSelected: string) => setSelected(newSelected);
 
+  const [isFullScreen, setFullScreen] = useState(true);
+  /* eslint-disable */
+  const handleClick = (event: any) => {
+    event.currentTarget.parentNode.toggleAttribute('full');
+    setFullScreen(!isFullScreen);
+  };
+  let screenModeIcon = isFullScreen ? <FullScreenIcon /> : <Close />;
+
   return (
     <div
       className={classNames([classes['container'], classes['container_s'], classes['death-cases']])}
     >
-      <button type="button" className={classes['full-screen-btn']}>
-        <FullScreenIcon />
+      <button type="button" className={classes['full-screen-btn']} onClick={handleClick}>
+        {screenModeIcon}
       </button>
       <div className={classes['wrapper']}>
         <div className={classNames([classes['dropdown'], dropdownStyles['select-wrapper']])}>
